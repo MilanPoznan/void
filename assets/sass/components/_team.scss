@@ -1,0 +1,44 @@
+.team {
+  position: relative;
+  &__wrapper {
+    width: 90%;
+    margin: 0 auto;
+    
+  }
+  &__peoples-slider {
+    display: flex;
+    overflow-x: hidden;
+  }
+  &__member-wrapp {
+    min-width: 100%;
+    width: 100%;
+    display: flex;
+    flex-flow: column;
+    position: relative;
+    transition: 0.5s;
+  }
+  &__member-image {
+    width: 100%;
+    height: 250px;
+    background-position: center;
+    background-size: cover;
+  }
+  &__slide {
+    position: absolute;
+    top: 50%;
+    background-attachment: fixed;
+    border: solid black;
+    border-width: 0 3px 3px 0;
+    display: inline-block;
+    padding: 3px;
+
+  }
+  &__prev {
+    left: 10px;
+    transform: rotate(135deg);
+  }
+  &__next {
+    right: 10px;
+    transform: rotate(-45deg);
+  }
+}

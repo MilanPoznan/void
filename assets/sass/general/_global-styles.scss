@@ -1,0 +1,219 @@
+/*************************************
+* Body, html and other global styles *
+*************************************/
+
+// Default typography styles for the site
+body {
+}
+// Plugin styles
+// .disqus-footer__wrapper {
+// 	display: none !important;
+// }
+#tagSolutions {
+	&:nth-child(2) {
+		display: block;
+	}
+}
+.pagination {
+	font-family: $Segoeui;
+	color: $dark-blue;
+	.left {
+		margin-bottom: 8px;
+	}
+}
+.removeHash {
+	&:before {
+		display: none !important;
+	}
+}
+.removeHashFromTitle {
+	p {
+		display: none !important;
+	}
+}
+.tagsChoice {
+	display: none;
+	padding-left: 10px;
+	padding-right: 20px;
+	width: fit-content;
+	&:nth-child(-n + 4) {
+		display: block;
+	}
+	&:hover {
+		color: $white;
+		background-color: $red;
+	}
+}
+h1,
+h2,
+h3,
+h4,
+h5 {
+	line-height: 1.2;
+}
+input {
+	outline: none;
+}
+a {
+	color: inherit;
+}
+em {
+	font-style: italic;
+}
+.js-alert-text {
+	position: absolute;
+	opacity: 0;
+	transition: 0.3s;
+	width: 50%;
+	bottom: 10vh;
+	color: $white;
+	font-family: $Segoeui;
+	text-align: center;
+	font-size: 8px;
+	line-height: 18px;
+	letter-spacing: 0.4px;
+	z-index: 1111;
+	a {
+		color: $red;
+	}
+}
+
+.qr_map-wrapper {
+	width: 100%;
+}
+.global-wrapper {
+	padding: 16px;
+}
+.post-password-form {
+	margin: 20% 5%;
+	display: flex;
+	flex-flow: column;
+	align-items: center;
+	justify-content: center;
+	p {
+		margin-bottom: 20px;
+		font-family: $Segoeui;
+		text-align: center;
+	}
+	input {
+		outline: none;
+		border: 1px solid;
+	}
+}
+.content {
+	font-size: 16px;
+	line-height: 1.4;
+	text-align: left;
+
+	h1 {
+		font-size: 22px;
+		line-height: 1.4;
+	}
+
+	h2 {
+	}
+
+	h3 {
+	}
+
+	h4 {
+	}
+
+	h5 {
+	}
+} // .content
+
+// Prevent scroll
+.no-scroll {
+	overflow: hidden;
+}
+
+// image to background helper class
+img[class$='-imgtobg'] {
+	display: none;
+}
+
+// class for animation purposes
+// hides element so animation can start smoothly
+.animated {
+	visibility: hidden;
+}
+.newsletter-email {
+	&::placeholder {
+		color: $white;
+	}
+}
+.thankyou-page {
+	margin: 20% 5%;
+	font-family: $Segoeui;
+	h1 {
+		font-size: 18px;
+		margin-bottom: 10px;
+	}
+}
+.sec-title {
+	font-size: 22px;
+	position: relative;
+	margin-bottom: 25px;
+	font-family: $Exo2;
+	color: $grey-text;
+	&:before {
+		content: '';
+		position: absolute;
+		display: block;
+		width: 65px;
+		height: 4px;
+		bottom: -21px;
+		background-color: $red;
+	}
+}
+a.disabled {
+	// pointer-events: none;
+}
+/****************
+* Media queries *
+****************/
+
+@include tablet() {
+	h2 {
+		font-size: 44px;
+		line-height: 0.92;
+	}
+}
+
+@include desktop() {
+	.global-wrapper {
+		width: 100%;
+		max-width: 1170px;
+		margin: 0 auto;
+		padding: 0;
+	}
+	.thankyou-page {
+		margin: 20% 5%;
+		font-family: $Segoeui;
+		h1 {
+			font-size: 24px;
+			margin-bottom: 10px;
+		}
+	}
+	h2 {
+		font-size: 48px;
+	}
+	p {
+		// letter-spacing: 0.8px;
+	}
+	.js-alert-text {
+		font-size: 20px;
+		line-height: 24px;
+		letter-spacing: 0.5px;
+	}
+}
+@include desktop-xlg() {
+	h2 {
+		font-size: 58px;
+		line-height: 56px;
+	}
+	p {
+		font-size: 19px;
+	}
+}
