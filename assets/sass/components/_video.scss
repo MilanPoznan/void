@@ -43,3 +43,29 @@
     }
   }
 }
+
+@include desktop() {
+  .video-section {
+    video {
+      position: relative;
+      height: 100vh;
+      margin-top: -60px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    &__scroll {
+      bottom: 90px;
+      span {
+        width: 52px;
+        height: 52px;
+
+        &::after {
+          width: 16px;
+          height: 16px;
+          margin: -12px 0 0 -8px;
+        }
+      }
+    }
+  }
+}
