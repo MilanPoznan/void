@@ -128,12 +128,19 @@ $('.custom-logo-link').on('click', function(e) {
   loadFrontPage(targetUrl);
 })
 $menuItem.on('click', function(e) {
-  if (window.innerWidth < 1200 ) {
-    $hamburger.removeClass('hamburger--is-active');
-    $headerMenu.removeClass('header__menu--visible');
-    $('.header').removeClass('header--is-open');
-  } 
-  getDataFromREST(e);
+  console.log(e.target.parentNode.className);
+  
+  if (e.target.parentNode.className.includes('lang-item')) {
+    console.log('asd');
+  } else {
+    if (window.innerWidth < 1200 ) {
+      $hamburger.removeClass('hamburger--is-active');
+      $headerMenu.removeClass('header__menu--visible');
+      $('.header').removeClass('header--is-open');
+    } 
+    getDataFromREST(e);
+  }
+  
 });
 
 $(document).ready(function() {
