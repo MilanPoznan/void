@@ -9,17 +9,30 @@ import ekipaFilma from './components/project-ekipa';
 //Elements
 const $menuItem = $('.menu-item a');
 const $mainContentDiv = $('.site-content');
-const $projectMainContentDiv = $('.single-project');
 const currentUrl = window.location.href;
+const $hamburgerWrapper = $('.hamburger-wrapp');
+const $hamburger = $('.hamburger');
+const $headerMenu = $('.header__menu');
+const $menu = $('.js-menu');
 //Vars
 var sliceUrl;
+
+/* START navigation */
+$hamburgerWrapper.on('click', () => {
+	$hamburger.toggleClass('hamburger--is-active');
+	$headerMenu.toggleClass('header__menu--visible');
+	$('.header').toggleClass('header--is-open');
+});
+/* END of navigation part */
+
+
+
 
 function getLastCharactersFromPageUrl(url) {
   sliceUrl = url.split('/');
   sliceUrl = sliceUrl[sliceUrl.length - 2];
   console.log(sliceUrl);
 } 
-
 
 function createFrontPage(result) {
   $mainContentDiv.append(videoSection(result));
@@ -32,7 +45,6 @@ function createPressPage(result) {
 }
 
 function createDefautlPageTemplate(result) {
-  // $mainContentDiv.append(videoSection(result));
   console.log('test for def page');
   
 }
@@ -90,22 +102,39 @@ function getPageData() {
   )
 }
 
+
+function loadFrontPage(targetUrl) {
+  $mainContentDiv.empty();
+  getLastCharactersFromPageUrl(targetUrl);
+  getPageData();
+}
+
 function getDataFromREST(e) {
-  let targetUrl = e.target.href; 
+  let targetUrl = e.target.href;
   e.preventDefault();
-  $mainContentDiv.empty();
-  $mainContentDiv.empty();
-  
-  if (targetUrl.includes('projects')) {
+  if (targetUrl.includes('#')) {
+    e.preventDefault();
+    return false;
+  } else if (targetUrl.includes('projects')) {
+    $mainContentDiv.empty();
     getLastCharactersFromPageUrl(targetUrl);
     getProjectData();
   } else {
-    getLastCharactersFromPageUrl(targetUrl);
-    getPageData();
+    loadFrontPage(targetUrl);
   }
 }
 //Events 
+$('.custom-logo-link').on('click', function(e) {
+  let targetUrl = e.target.parentNode.href;
+  e.preventDefault();
+  loadFrontPage(targetUrl);
+})
 $menuItem.on('click', function(e) {
+  if (window.innerWidth < 1200 ) {
+    $hamburger.removeClass('hamburger--is-active');
+    $headerMenu.removeClass('header__menu--visible');
+    $('.header').removeClass('header--is-open');
+  } 
   getDataFromREST(e);
 });
 
