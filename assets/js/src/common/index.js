@@ -1,5 +1,6 @@
 import videoSection from './components/video';
-import imageWithText from './components/image-with-text';
+import infoContent from './components/info';
+import imageWithTitle from './components/image-with-title';
 import pressPage from './components/pressPage';
 import projectHero from './components/project-hero';
 import testimonialsSection from './components/testimonials';
@@ -22,7 +23,8 @@ function getLastCharactersFromPageUrl(url) {
 
 function createFrontPage(result) {
   $mainContentDiv.append(videoSection(result));
-  $mainContentDiv.append(imageWithText(result));
+  $mainContentDiv.append(infoContent(result));
+  $mainContentDiv.append(imageWithTitle(result));
   $mainContentDiv.append(testimonialsSection(result));
 }
 function createPressPage(result) {

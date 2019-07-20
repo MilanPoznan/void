@@ -120,6 +120,8 @@ add_action( 'widgets_init', 'void_widgets_init' );
  * Enqueue scripts and styles.
  */
 function void_scripts() {
+	wp_enqueue_style( 'google-fonts', 'https://fonts.googleapis.com/css?family=Montserrat:400,700|Raleway:400,700,900&display=swap' );
+
 	wp_deregister_script( 'jquery' );
 	wp_enqueue_script( 'jquery', 'https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js', NULL, '3.4.1', true);
 	wp_enqueue_script( 'index', get_theme_file_uri('/assets/js/main.js'), array('jquery'), '1.0', true );

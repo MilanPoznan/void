@@ -4,6 +4,7 @@
 
 // Default typography styles for the site
 body {
+	background-color: $light-gray;
 }
 // Plugin styles
 // .disqus-footer__wrapper {
@@ -50,6 +51,46 @@ h3,
 h4,
 h5 {
 	line-height: 1.2;
+	font-family: $raleway-black;
+}
+h1 {
+	position: relative;
+	font-size: 30px;
+
+	&:after {
+		content: '';
+		left: 0;
+		bottom: -30px;
+		position: absolute;
+		width: 180px;
+		height: 20px;
+		margin-top: 20px;
+		background: $blue;
+	}
+
+}
+h2 {
+	font-size: 24px;
+	letter-spacing: 4.8px;
+}
+h3 {
+	font-size: 18px;
+	letter-spacing: 1.8px;
+}
+p {
+	margin-bottom: 20px;
+	font-size: 14px;
+	line-height: 24px;
+	font-family: $montserrat;
+
+	&:first-child {
+		font-size: 16px;
+		line-height: 26px;
+		font-family: $montserrat-bold;
+	}
+	&:last-child {
+		margin-bottom: 0;
+	}
 }
 input {
 	outline: none;
@@ -81,8 +122,8 @@ em {
 .qr_map-wrapper {
 	width: 100%;
 }
-.global-wrapper {
-	padding: 16px;
+.wrapper {
+	padding: 0 5%;
 }
 .post-password-form {
 	margin: 20% 5%;

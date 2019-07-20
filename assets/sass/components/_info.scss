@@ -1,0 +1,55 @@
+.info {
+  display: flex;
+  flex-direction: column;
+  margin: 50px 0;
+
+  &__titles {
+    position: relative;
+    margin-bottom: 40px;
+    &-title {
+      width: 50%;
+      font-size: 24px;
+      letter-spacing: 2.4px;
+    }
+    &-subtitle {
+      margin-bottom: 20px;
+      font-family: $raleway;
+      color: $gray;
+    }
+  }
+  &__container {
+    padding-top: 50px;
+    &-text {
+      margin-bottom: 20px;
+    }
+    &-link {
+      display: flex;
+      align-items: center;
+      width: 100%;
+      font-size: 18px;
+      line-height: 44px;
+      letter-spacing: 1.8px;
+      font-family: $raleway;
+      color: $blue;
+    }
+    &-link-arrow {
+      position: relative;
+      margin-left: 15px;
+      width: 35px;
+      height: 1px;
+      background-color: $blue;
+
+      &::after {
+        content: '';
+        position: absolute;
+        top: -5px;
+        right: 1px;
+        display: inline-block;
+        padding: 5px;
+        border: solid $blue;
+        border-width: 0 1px 1px 0;
+        transform: rotate(-45deg);
+      }
+    }
+  }
+}
