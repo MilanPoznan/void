@@ -1,12 +1,13 @@
 .testimonials-section {
   border: 1px solid red;
+
   &__wrapper {
     position: relative;
   }
   &__slider {
     display: flex;
     flex-flow: row;
-
+    overflow-x: hidden;
   }
   &__item {
     min-width: 100%;
