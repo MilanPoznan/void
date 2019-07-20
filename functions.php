@@ -205,16 +205,11 @@ function add_cpt_projects() {
 }
 add_action('init', 'add_cpt_projects');
 
-
-// //Permastructure for CPT
-// add_action( 'wp_loaded', 'add_projects_permastructure' );
-// function add_projects_permastructure() {
-// 	global $wp_rewrite;
-// 	$current_post_id = $_GET['post']; 
-// 	add_permastruct( 'projects', 'projects/' . $current_post_id, false );
-// }
-
-
+function cc_mime_types($mimes) {
+  $mimes['svg'] = 'image/svg+xml';
+  return $mimes;
+}
+add_filter('upload_mimes', 'cc_mime_types');
 
 // Enable the option show in rest
 add_filter( 'acf/rest_api/field_settings/show_in_rest', '__return_true' );
