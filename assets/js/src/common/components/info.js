@@ -1,7 +1,7 @@
 export default function InfoContent(result) {
   return (
     `
-    <div class="info wrapper">
+    <div id="info" class="info wrapper">
       <div class="info__titles">
         <h3 class="info__titles-subtitle">${result.acf.info_subtitle}</h3>
         <h1 class="info__titles-title">${result.acf.info_title}</h1>    
