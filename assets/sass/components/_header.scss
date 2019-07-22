@@ -8,6 +8,8 @@
   align-items: center;
   justify-content: space-between;
   padding: 0 5%;
+	font-family: $montserrat;
+
   &__logo {
     height: 40px;
     width: 140px;
@@ -15,13 +17,13 @@
     position: relative;
   
     img {
-      width: 100%;
-      height: auto;
+      width: auto;
+      height: 40px;
     }
   }
   &__menu {
     position: absolute;
-		background: $grey;
+		background: $light-grey;
 		width: 0;
 		top: 60px;
 		right: 0;
@@ -42,7 +44,11 @@
 .menu {
   text-align: center;
   li {
-    margin: 10px auto;
+    margin: 20px auto;
+  }
+  .current_page_item{
+    font-family: $montserrat-bold;    
+    color: $black;
   }
 }
 .menu .menu-item-has-children { 
@@ -54,14 +60,14 @@
   ul {
     li {
       text-transform: uppercase;
-      font-weight: bold;
+      font-family: $montserrat-bold;
     }
   }
   &:after {
     content: '';
     width: 80px;
     height: 10px; 
-    background: red;
+    background: $blue;
     position: absolute;
     left: calc(50% - 42px); 
     bottom: -22px;
@@ -69,6 +75,7 @@
 }
 
 @include desktop() {
+  
   .menu .menu-item-has-children { 
     position: relative;
     text-transform: uppercase;
@@ -134,10 +141,9 @@
     color: #646464;
     
   }
-  .current-lang {
-    font-weight: bold;
-    color: $black;
-
+ 
+  .lang-item-first {
+    margin-left: 40px !important;
   }
   .menu .lang-item-3 {
     position: relative;
@@ -153,6 +159,7 @@
     } 
   }
   .header {
+    background: transparent;
     &__hamburger-wrapp {
       display: none;
     }
@@ -165,5 +172,4 @@
       background: transparent;
     }
   }
-
 }
