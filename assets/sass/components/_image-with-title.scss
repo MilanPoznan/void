@@ -1,38 +1,94 @@
 .image-text-component {
   display: flex;
+  flex-wrap: wrap;
   justify-content: space-between;
   margin-bottom: 100px; // temp
 
   &__wrapper {
-    width: 133px;
-    position: relative;
+    margin-bottom: 30px;
+    width: 48%;
     overflow: hidden;
   }
+  &__link {
+    position: relative;
+    // width: 100%;
+  }
   &__image {
-    width: 100%;
+    display: block;
     height: 174px;
-    background-position: center !important;
-    background-size: cover !important;
-    background-repeat: no-repeat !important;
+    width: 100%;
+    height: auto;
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
   }
 
-  &__overlay {
-    background-color: rgba(189, 207, 217, .2);
+  &__overlay-title {
     position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     height: 100%;
     width: 100%;
+    font-size: 14px;
+    font-family: $raleway-black;
+    color: $white;
+    background-color: rgba(189, 207, 217, 0.2);
+    text-align: center;
+    text-transform: uppercase;
   }
-  &__content {
-    &-title {
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      font-size: 14px;
-      font-family: $raleway-black;
-      color: $white;
-      text-align: center;
-    }
-  }
-
+  // &__content {
+  //   &-title {
+  //     position: absolute;
+  //     top: 50%;
+  //     left: 50%;
+  //     transform: translate(-50%, -50%);
+  //     font-size: 14px;
+  //     font-family: $raleway-black;
+  //     color: $white;
+  //     text-align: center;
+  //     text-transform: uppercase;
+  //   }
+  // }
 }
+
+// @include tablet() {
+//   .image-text-component {
+//     &__image {
+//       height: 300px;
+//     }
+//     // &__content {
+//     //   &-title {
+//     //     font-size: 20px;
+//     //   }
+//     // }
+//   }
+// }
+
+// @include desktop() {
+//   .image-text-component {
+//     &__wrapper {
+//       // margin-bottom: 40px;
+
+//       &:nth-child(odd) {
+//         width: 55%;
+//       }
+//       &:nth-child(even) {
+//         width: 35%;
+//         margin-top: 80px;
+//       }
+//     }
+//     &__image {
+//       &:nth-child(odd) {
+//         height: 450px;
+//       }
+//       &:nth-child(even) {
+//         height: 480px;
+//       }
+//     }
+//   }
+// }
