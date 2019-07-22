@@ -3,8 +3,11 @@
 *************************************/
 
 // Default typography styles for the site
+html {
+	scroll-behavior: smooth;
+}
 body {
-	background-color: $light-gray;
+	background-color: $light-grey;
 }
 // Plugin styles
 // .disqus-footer__wrapper {
