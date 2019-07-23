@@ -29,15 +29,15 @@
     background-color: rgba(44, 104, 136, .3);
   }
   &__title {
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      font-size: 14px;
-      font-family: $raleway-black;
-      color: $white;
-      text-align: center;
-      text-transform: uppercase;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 14px;
+    font-family: $raleway-black;
+    color: $white;
+    text-align: center;
+    text-transform: uppercase;
   }
 }
 
@@ -45,7 +45,6 @@
   .image-text-component {
     &__wrapper {
       width: 48%;
-      margin-bottom: 0;
     }
     &__link {
       height: 375px;
@@ -59,6 +58,8 @@
 @include desktop() {
   .image-text-component {
     &__wrapper {
+      margin-bottom: 0;
+      
       &:nth-child(odd) {
         width: 55%;
       }
