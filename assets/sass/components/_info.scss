@@ -12,7 +12,6 @@
       letter-spacing: 2.4px;
     }
     &-subtitle {
-      margin-bottom: 20px;
       font-family: $raleway;
       color: $gray;
     }
@@ -111,8 +110,6 @@
     }
     &__container {
       width: 55%;
-      // width: 100%;
-      // max-width: 600px;
       padding-top: 0px;
       &-text {
         margin-bottom: 50px;
