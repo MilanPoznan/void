@@ -57,6 +57,7 @@ h5 {
 h1 {
 	position: relative;
 	font-size: 30px;
+	letter-spacing: 4.8px;
 	text-transform: uppercase;
 	width: 80%;
 
@@ -203,7 +204,7 @@ img[class$='-imgtobg'] {
 	position: relative;
 	margin-bottom: 25px;
 	font-family: $Exo2;
-	color: $grey-text;
+	color: $black-text;
 	&:before {
 		content: '';
 		position: absolute;
