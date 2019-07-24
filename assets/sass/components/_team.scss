@@ -60,6 +60,25 @@
     font-family: $montserrat;
     text-transform: lowercase;
   }
+  &__member-description {
+    position: relative;
+    margin-top: 40px;
+    font-size: 14px;
+    line-height: 24px;
+    font-family: $montserrat;
+    color: $black-2;
+
+    &::after {
+      content: '';
+      position: absolute;
+      left: 50%;
+      bottom: -30px;
+      width: 35px;
+      height: 5px;
+      background: $black;
+      transform: translate(-50%);
+    }
+  }
   &__slide {
     position: absolute;
     top: 50%;

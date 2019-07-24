@@ -17,7 +17,8 @@ export default function ekipaFilma(result) {
             `<div class="team__member-wrapp" style="transition: 0.5s;">
               <div class="team__member-image" style="background-image: url('${item.image}')"></div>
               <h3 class="team__member-name">${item.name}</h3>
-              <div class="team__member-position">${item.description}</div>
+              <div class="team__member-position">${item.position}</div>
+              <div class="team__member-description">${item.description}</div>
             </div>`  
           ).join('')}
         </div>
