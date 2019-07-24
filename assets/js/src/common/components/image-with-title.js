@@ -5,15 +5,9 @@ export default function imageWithTitle(result) {
       ${result.acf.image_with_title_repeater.map(
         item => `
         <div class="image-text-component__wrapper">
-          <a href="${item.component_link}">
+          <a class="image-text-component__link" href="${item.component_link}"   style="background-image: url('${item.component_image}')">
             <div class="image-text-component__overlay"></div>
-            <div class="image-text-component__image" style="background: url('${item.component_image}')">
-            </div>
-            <div class="image-text-component__content">
-              <div class="image-text-component__content-title">
-              ${item.component_title}
-              </div>
-            </div>
+            <div class="image-text-component__title">${item.component_title}</div>
           </a>
         </div>`
       ).join('')}
