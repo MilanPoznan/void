@@ -1,0 +1,23 @@
+.about-project {
+  padding-bottom: 70px;
+
+  &__description  {
+    display: flex;
+    flex-direction: column;
+  }
+  &__box {
+    margin-bottom: 40px;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+
+    &:first-child {
+      p {
+        font-size: 16px;
+        line-height: 26px;
+        font-family: $montserrat-bold;
+      }
+    }
+  }
+}

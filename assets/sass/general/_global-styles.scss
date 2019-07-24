@@ -64,18 +64,31 @@ h1 {
 	&:after {
 		content: '';
 		left: 0;
-		bottom: -30px;
+		bottom: -25px;
 		position: absolute;
-		width: 180px;
-		height: 20px;
-		margin-top: 20px;
+		width: 85px;
+		height: 15px;
+		// margin-top: 20px;
 		background: $blue;
 	}
 
 }
 h2 {
+	position: relative;
+	margin-bottom: 30px;
 	font-size: 24px;
 	letter-spacing: 4.8px;
+
+	&:after {
+		content: '';
+		left: 0;
+		bottom: -10px;
+		position: absolute;
+		width: 35px;
+		height: 5px;
+		// margin-top: 20px;
+		background: $blue;
+	}
 }
 h3 {
 	font-size: 18px;
@@ -235,6 +248,13 @@ a.disabled {
 		max-width: 1170px;
 		margin: 0 auto;
 		padding: 0;
+	}
+	h1 {
+
+		&::after {
+			width: 180px;
+			height: 20px;
+		}
 	}
 	.thankyou-page {
 		margin: 20% 5%;
