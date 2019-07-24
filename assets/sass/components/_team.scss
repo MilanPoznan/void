@@ -12,14 +12,23 @@
     display: flex;
     overflow-x: hidden;
   }
-  &__member-wrapp {
+  &__member {
     position: relative;
     display: flex;
     flex-flow: column;
     align-items: center;
     min-width: 100%;
     width: 100%;
+    height: 540px;
     transition: 0.5s;
+    overflow: hidden;
+  }
+  &__member-wrapp {
+    position: absolute;
+    top: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
   }
   &__member-image {
     position: relative;
@@ -63,10 +72,12 @@
   &__member-description {
     position: relative;
     margin-top: 40px;
+    padding: 0 30px;
     font-size: 14px;
     line-height: 24px;
     font-family: $montserrat;
     color: $black-2;
+
 
     &::after {
       content: '';
