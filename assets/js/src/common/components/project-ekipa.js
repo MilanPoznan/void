@@ -5,23 +5,27 @@ export default function ekipaFilma(result) {
   const projectMainWrapper = document.querySelector('.single-project');
   let sliderIndex = 0;
   const body = document.getElementsByTagName('body');
+  
   sliderFunction(body[0], 'team__member', 'team', sliderIndex);
 
   body[0].addEventListener('click', (e) => {
-    let isClicked = false;
-
     if(e.target.parentNode.className === 'team__member-wrapp') {
-      if(!isClicked) {
-        e.target.parentNode.className += ' move-top';
-        isClicked = true;
-        console.log(isClicked);
-      } else {
-        e.target.parentNode.className -= ' move-top';
-        isClicked = false;
-        console.log(isClicked);
-      }
+      e.target.parentNode.className += ' move-top';
+    } else if (e.target.parentNode.className === 'team__member-wrapp move-top') {
+      e.target.parentNode.classList.remove("move-top"); 
+    }
+  });
+
+  body[0].addEventListener('click', (e) => {
+    const element = document.querySelector('.team__full-cast');
+    const link = document.querySelector('.team__cast-link');
+    console.log(element, link);
+    if(e.target === link) {
+      element.style.display = 'flex';
+      link.style.display = 'none';     
     } else {
-      console.log(e.target.className)
+      element.style.display = 'none';
+      link.style.display = 'flex';
     }
   });
   
@@ -47,7 +51,15 @@ export default function ekipaFilma(result) {
       </div>
       <span class="team__prev team__slide"></span>
       <span class="team__next team__slide"></span>
-      
-    </div>`
+    </div>
+    <div class="team__cast-link">see all cast and crew</div>
+    <div class="team__cast-wrapp">
+      ${result.acf.ekipa_filma.map(item => `
+        <div class="team__full-cast">
+          ${item.full_cast}
+        </div>
+      `).join('')}
+    </div>
+    `
   )
 }
