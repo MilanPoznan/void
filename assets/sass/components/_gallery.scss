@@ -1,0 +1,32 @@
+.project-galery {
+  position: relative;
+  &__wrapper {
+    display: flex;
+    overflow: hidden;
+    position: relative;
+  }
+  &__item {
+    min-width: 33%;
+    height: 300px;
+    background-position: center;
+    background-size: cover;
+   }
+   &__slide {
+    position: absolute;
+    top: 50%;
+    background-attachment: fixed;
+    border: solid black;
+    border-width: 0 3px 3px 0;
+    display: inline-block;
+    padding: 3px;
+
+  }
+  &__prev {
+    left: 10px;
+    transform: rotate(135deg);
+  }
+  &__next {
+    right: 10px;
+    transform: rotate(-45deg);
+  }
+}

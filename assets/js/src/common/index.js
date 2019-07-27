@@ -4,6 +4,7 @@ import imageWithTitle from './components/image-with-title';
 import pressPage from './components/pressPage';
 import projectHero from './components/project-hero';
 import testimonialsSection from './components/testimonials';
+import projectGallery from './components/project-galery';
 import projectAbout from './components/project-about';
 import ekipaFilma from './components/project-ekipa';
 //Elements
@@ -39,6 +40,7 @@ function createFrontPage(result) {
   $mainContentDiv.append(infoContent(result));
   $mainContentDiv.append(imageWithTitle(result));
   $mainContentDiv.append(testimonialsSection(result));
+  
 }
 function createPressPage(result) {
   $mainContentDiv.append(pressPage(result));
@@ -53,6 +55,8 @@ function createProjectCPT(result) {
   $mainContentDiv.append(projectHero(result));
   $mainContentDiv.append(projectAbout(result));
   $mainContentDiv.append(ekipaFilma(result));
+  $mainContentDiv.append(projectGallery(result));
+
 }
 
 function getProjectData() {
