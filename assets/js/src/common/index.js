@@ -7,6 +7,8 @@ import testimonialsSection from './components/testimonials';
 import projectGallery from './components/project-galery';
 import projectAbout from './components/project-about';
 import ekipaFilma from './components/project-ekipa';
+import galleryModal from './components/gallery-modal';
+
 //Elements
 const $menuItem = $('.menu-item a');
 const $mainContentDiv = $('.site-content');
@@ -56,6 +58,7 @@ function createProjectCPT(result) {
   $mainContentDiv.append(projectAbout(result));
   $mainContentDiv.append(ekipaFilma(result));
   $mainContentDiv.append(projectGallery(result));
+  // $mainContentDiv.append(galleryModal(result));
 
 }
 
@@ -64,7 +67,7 @@ function getProjectData() {
     projectData.root_url + '/wp-json/wp/v2/projects',
     results => {
       results.map(result => {
-        console.log(result);
+        // console.log(result);
         history.pushState(result, '', projectData.root_url + '/projects/' + sliceUrl);
         if (result.slug == sliceUrl) {
           createProjectCPT(result);
@@ -80,7 +83,7 @@ function getPageData() {
     projectData.root_url + '/wp-json/wp/v2/pages',
     results => {
       results.map(result => {
-        console.log(result);
+        // console.log(result);
         let currentSliceUrl = sliceUrl;
         if (sliceUrl == 'void') {
           currentSliceUrl = 'frontpage';

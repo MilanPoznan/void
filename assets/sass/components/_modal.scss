@@ -1,0 +1,52 @@
+.modal {
+  position: relative;
+  &__wrapper {
+    position: relative;
+
+  }
+  &__images {
+    display: flex;
+    overflow-x: hidden;
+    
+  } 
+  &__image {
+    min-width: 100%;
+    width: 100%;
+    display: flex;
+    position: relative;
+    transition: 0.5s;
+    img {
+      display: block;
+      width: 80%;
+      max-width: 80%;
+      margin: 0 auto;
+
+    }
+  }
+  &__navi {
+    position: absolute;
+    width: 100%;
+    top: 50%;
+    height: 20px;
+
+  }
+  &__slide {
+    position: absolute;
+    top: 50%;
+    background-attachment: fixed;
+    border: solid black;
+    border-width: 0 3px 3px 0;
+    display: inline-block;
+    padding: 3px;
+
+  }
+  &__prev {
+    left: 10px;
+    transform: rotate(135deg);
+  }
+  &__next {
+    right: 10px;
+    transform: rotate(-45deg);
+  }
+
+}

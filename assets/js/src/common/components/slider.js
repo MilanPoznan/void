@@ -4,9 +4,13 @@ export default function slider(mainElement, itemArray, className, defIndex) {
    mainElement.addEventListener('click',  (e) => {
     let sliderItem = document.getElementsByClassName(itemArray);
     if(e.target.className == `${className}__next ${className}__slide`) {
-      defIndex++;      
+      defIndex++;  
+      console.log('next');
+          
     } else if (e.target.className == `${className}__prev ${className}__slide`) {
       defIndex--;      
+      console.log('prev');
+
     }
 
     for (let index = 0; index < sliderItem.length; index++) {
