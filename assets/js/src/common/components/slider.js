@@ -14,12 +14,16 @@ export default function slider(mainElement, itemArray, className, defIndex) {
     }
 
     for (let index = 0; index < sliderItem.length; index++) {
+
       if (defIndex >= sliderItem.length ) {
         defIndex = 0;
       } else if (defIndex < 0) {
         defIndex = sliderItem.length - 1;
       }
       sliderItem[index].style.right = defIndex * 100 + "%";
+      console.log(sliderItem[index].style.right);
+
     }
   });
+
 }

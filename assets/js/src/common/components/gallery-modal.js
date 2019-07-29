@@ -18,33 +18,31 @@ export default function galleryModal(result) {
       let galleryItem = document.getElementsByClassName('project-galery__item');
       let galleryItemArray = [...galleryItem];
       // let dataAttribute = e.target.getAttribute('data-url');
-      let modalGalleryImage = document.getElementsByClassName('modal__image');
+      let modalGalleryImage = document.querySelector('.modal__image');
       console.log(modalGalleryImage);
       // modalGalleryImage.map(image => {
       //   image.onclick
       // })
-      for (let index = 0; index < galleryItem.length; index++) {
-        console.log('====================================');
-        console.log(galleryItem[index]);
-        console.log('====================================');
-        // galleryItem[index].style.right = defIndex * 100 + "%";
-      }
+      // for (let index = 0; index < galleryItem.length; index++) {
+      // }
 
 
       galleryItemArray.map((item, index) => {
         let i = index;
-        item.onclick = () => {
+        item.onclick = () => 
+          console.log(i);
           var result = i * 100;
-          console.log(result);
-          modalGalleryImage.style.right = result + '%'; 
-          for (let index = 0; index < modalGalleryImage.length; index++) {
-            console.log(modalGalleryImage[index]);
+          // console.log(result);
+
+          modalGalleryImage.style.right = '300%'; 
+          console.log(modalGalleryImage.style.right);
+          
+          // for (let index = 0; index < modalGalleryImage.length; index++) {
+          //   console.log(modalGalleryImage[index]);
             
-            modalGalleryImage[index].style.right = '200%'; 
             
-          }
-        }
-      }).join();
+          // }
+        }).join();
       
     }
     
