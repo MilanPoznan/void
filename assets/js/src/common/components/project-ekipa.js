@@ -17,14 +17,21 @@ export default function ekipaFilma(result) {
   });
 
   body[0].addEventListener('click', (e) => {
+    const el = document.querySelector('.team__cast-wrapp');
+    const innerHeight = document.querySelector('.team__full-cast-inner').offsetHeight;
     const element = document.querySelector('.team__full-cast');
+    console.log(innerHeight);
+
+
     const link = document.querySelector('.team__cast-link');
     console.log(element, link);
     if(e.target === link) {
-      element.style.display = 'flex';
+      el.style.height = `${innerHeight}px`;
+      element.style.position = 'initial';
       link.style.display = 'none';     
     } else {
-      element.style.display = 'none';
+      el.style.height = '0px';
+      element.style.position = 'absolute';
       link.style.display = 'flex';
     }
   });
@@ -54,11 +61,13 @@ export default function ekipaFilma(result) {
     </div>
     <div class="team__cast-link">see all cast and crew</div>
     <div class="team__cast-wrapp">
-      ${result.acf.ekipa_filma.map(item => `
-        <div class="team__full-cast">
-          ${item.full_cast}
+      <div class="team__full-cast">
+        <div class="team__full-cast-inner">
+        ${result.acf.ekipa_filma.map(item => `
+            ${item.full_cast}
+        `).join('')}
         </div>
-      `).join('')}
+      </div>
     </div>
     `
   )
