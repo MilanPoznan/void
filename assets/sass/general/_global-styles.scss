@@ -61,7 +61,7 @@ h1 {
 	text-transform: uppercase;
 	width: 80%;
 
-	&:after {
+	&::after {
 		content: '';
 		left: 0;
 		bottom: -25px;
@@ -103,11 +103,6 @@ p {
 	line-height: 24px;
 	font-family: $montserrat;
 
-	&:first-child {
-		font-size: 16px;
-		line-height: 26px;
-		font-family: $montserrat-bold;
-	}
 	&:last-child {
 		margin-bottom: 0;
 	}
@@ -236,13 +231,29 @@ a.disabled {
 ****************/
 
 @include tablet() {
+	.wrapper {
+		padding: 0 7%;
+	}
 	h2 {
-		font-size: 44px;
-		line-height: 0.92;
+		// font-size: 44px;
+		// line-height: 0.92;
+	}
+	p {
+		font-size: 16px;
+		line-height: 30px;
 	}
 }
 
 @include desktop() {
+	.wrapper {
+		padding: 0 15%;
+	}
+	h1 {
+
+		&::after {
+			bottom: -40px;
+		}
+	}
 	.global-wrapper {
 		width: 100%;
 		max-width: 1170px;
@@ -257,11 +268,9 @@ a.disabled {
 		}
 	}
 	.thankyou-page {
-		margin: 20% 5%;
-		font-family: $Segoeui;
 		h1 {
-			font-size: 24px;
-			margin-bottom: 10px;
+			// font-size: 24px;
+			// margin-bottom: 10px;
 		}
 	}
 	h2 {
