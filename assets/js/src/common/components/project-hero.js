@@ -3,7 +3,7 @@ export default function projectHero(result) {
     `<div class="hero">
       <div class="hero__wrapper">
         <div class="hero__image" style="background-image: url('${result.acf.project_image}')"></div>
-        <div class="hero__content wrapper">
+        <div class="hero__content">
           <div class="hero__titles">
             <h3 class="hero__titles-subtitle">${result.acf.project_description}</h3>
             <h1 class="hero__titles-title">${result.title.rendered}</h1>
