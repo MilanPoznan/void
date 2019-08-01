@@ -138,7 +138,11 @@ $('.custom-logo-link').on('click', function(e) {
 })
 $menuItem.on('click', function(e) {
   console.log(e.target.parentNode.className);
-  
+  $('.site-content').css('opacity', '0');
+  setTimeout(() => {
+  $('.site-content').css('opacity', '1');
+    
+  }, 500);
   if (e.target.parentNode.className.includes('lang-item')) {
     console.log('asd');
   } else {

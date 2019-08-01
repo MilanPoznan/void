@@ -14,7 +14,6 @@ export default function projectGallery(result) {
       if (e.target.className === 'project-galery__item') {
         var imageUrl = e.target.dataset.url;
         var currImage = e.target;
-
         bgImage = imageUrl;
         modalImage.src = bgImage;
       } else if (e.target.className.includes('modal__prev')) {

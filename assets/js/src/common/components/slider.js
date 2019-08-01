@@ -3,10 +3,12 @@ export default function slider(mainElement, itemArray, className, defIndex) {
   // console.log(defIndex);
     
    mainElement.addEventListener('click',  (e) => {
-    //  console.log(className);
+   
      
-    if (e.target.parentNode.className == className) {
-      
+    if (e.target.className.includes(className)) {
+      console.log(className);
+      console.log(e.target);
+         
       let sliderItem = document.getElementsByClassName(itemArray);
       if(e.target.className == `${className}__next ${className}__slide`) {
         defIndex++;  
