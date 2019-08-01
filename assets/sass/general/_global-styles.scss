@@ -5,9 +5,11 @@
 // Default typography styles for the site
 html {
 	scroll-behavior: smooth;
+	overflow-x: hidden;
 }
 body {
 	background-color: $light-grey;
+	overflow: hidden;
 }
 // Plugin styles
 // .disqus-footer__wrapper {
@@ -246,9 +248,7 @@ a.disabled {
 
 @include desktop() {
 	.wrapper {
-		max-width: 1280px;
-		margin: 0 auto;
-		padding: 0;
+		padding: 0 7%;
 	}
 	h1 {
 
