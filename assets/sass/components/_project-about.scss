@@ -21,3 +21,20 @@
     }
   }
 }
+
+@include desktop() {
+  .about-project {
+    &__description {
+      flex-direction: row;
+    }
+    &__box {
+      columns: 2 350px;
+      column-gap: 25px;
+      &:first-child {
+        margin-bottom: 0;
+      }
+      &:last-child {
+      }
+    }
+  }
+}
