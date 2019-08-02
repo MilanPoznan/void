@@ -4,9 +4,15 @@ import { log } from 'util';
 export default function ekipaFilma(result) {
   const projectMainWrapper = document.querySelector('.single-project');
   let sliderIndex = 0;
+  let windowWidth = window.innerWidth || document.documentElement.clientWidth;
+  console.log(windowWidth);
   const body = document.getElementsByTagName('body');
   
-  sliderFunction(body[0], 'team__member', 'team', sliderIndex);
+  if(windowWidth < 1200){
+
+    sliderFunction(body[0], 'team__member', 'team', sliderIndex);
+  }
+  
 
   body[0].addEventListener('click', (e) => {
     if(e.target.parentNode.className === 'team__member-wrapp') {
@@ -20,11 +26,11 @@ export default function ekipaFilma(result) {
     const el = document.querySelector('.team__cast-wrapp');
     const innerHeight = document.querySelector('.team__full-cast-inner').offsetHeight;
     const element = document.querySelector('.team__full-cast');
-    console.log(innerHeight);
+    // console.log(innerHeight);
 
 
     const link = document.querySelector('.team__cast-link');
-    console.log(element, link);
+    // console.log(element, link);
     if(e.target === link) {
       el.style.height = `${innerHeight}px`;
       element.style.position = 'initial';

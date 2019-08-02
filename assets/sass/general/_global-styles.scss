@@ -80,6 +80,7 @@ h2 {
 	margin-bottom: 30px;
 	font-size: 24px;
 	letter-spacing: 4.8px;
+	font-family: $raleway-bold;
 
 	&:after {
 		content: '';
@@ -88,7 +89,6 @@ h2 {
 		position: absolute;
 		width: 35px;
 		height: 5px;
-		// margin-top: 20px;
 		background: $blue;
 	}
 }
@@ -269,14 +269,15 @@ a.disabled {
 			height: 20px;
 		}
 	}
-	.thankyou-page {
-		h1 {
-			// font-size: 24px;
-			// margin-bottom: 10px;
-		}
-	}
 	h2 {
-		font-size: 48px;
+		font-size: 36px;
+		line-height: 28px;
+
+		&:after {
+			bottom: -40px;
+			width: 78px;
+			height: 10px;
+		}
 	}
 	p {
 		// letter-spacing: 0.8px;
@@ -285,6 +286,12 @@ a.disabled {
 		font-size: 20px;
 		line-height: 24px;
 		letter-spacing: 0.5px;
+	}
+}
+@include desktop-lg() {
+	.wrapper {
+		max-width: 1440px;
+		margin: 0 auto;
 	}
 }
 @include desktop-xlg() {

@@ -28,9 +28,14 @@
       flex-direction: row;
     }
     &__box {
+      h2 {
+        margin-bottom: 60px;
+      }
       &:first-child {
         margin-right: 25px;
         margin-bottom: 0;
+        font-size: 18px;
+        line-height: 28px;
       }
       &:last-child {
         columns: 2 300px;
