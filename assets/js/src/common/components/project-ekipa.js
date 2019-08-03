@@ -4,7 +4,9 @@ export default function ekipaFilma(result) {
   const projectMainWrapper = document.querySelector('.single-project');
   let sliderIndex = 0;
   const body = document.getElementsByTagName('body');
+  
   sliderFunction(body[0], 'team__member-wrapp', 'team', sliderIndex);
+
   return (
     `<div class="team">
       <div class="team__wrapper">
