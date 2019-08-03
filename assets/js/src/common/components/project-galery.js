@@ -48,8 +48,6 @@ export default function projectGallery(result) {
       <div class="modal__images">
        <img src=${bgImage} class="modal__image" /> 
       </div>
-        <span class="modal__prev modal__slide"></span>
-        <span class="modal__next modal__slide"></span>
     </div>` 
   )
   

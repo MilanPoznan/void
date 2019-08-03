@@ -7,11 +7,11 @@
   &__images {
     display: flex;
     overflow-x: hidden;
-    
   } 
   &__image {
-    width: auto;
+    width: 100%;
     height: auto;
+    max-height: 80vh;
     display: flex;
     position: relative;
     transition: 0.5s;

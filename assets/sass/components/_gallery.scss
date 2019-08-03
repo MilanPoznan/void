@@ -11,6 +11,12 @@
     height: 188px;
     background-position: center;
     background-size: cover;
+    filter: grayscale(1);
+    transition: 0.2s;
+    &:hover {
+    filter: grayscale(0.1);
+
+    }
    }
    &__slide {
     position: absolute;
