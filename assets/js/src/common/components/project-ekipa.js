@@ -4,15 +4,14 @@ import { log } from 'util';
 export default function ekipaFilma(result) {
   const projectMainWrapper = document.querySelector('.single-project');
   let sliderIndex = 0;
-  let windowWidth = window.innerWidth || document.documentElement.clientWidth;
-  console.log(windowWidth);
   const body = document.getElementsByTagName('body');
-  
-  if(windowWidth < 1200){
 
-    sliderFunction(body[0], 'team__member', 'team', sliderIndex);
-  }
-  
+  const windowWidth = window.innerWidth;
+ 
+    if(windowWidth < 1199) {
+      sliderFunction(body[0], 'team__member', 'team', sliderIndex);
+    } 
+
 
   body[0].addEventListener('click', (e) => {
     if(e.target.parentNode.className === 'team__member-wrapp') {
