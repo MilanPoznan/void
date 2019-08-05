@@ -5,7 +5,6 @@ export default function ekipaFilma(result) {
   const projectMainWrapper = document.querySelector('.single-project');
   let sliderIndex = 0;
   const body = document.getElementsByTagName('body');
-<<<<<<< HEAD
 
   const windowWidth = window.innerWidth;
  
@@ -42,11 +41,6 @@ export default function ekipaFilma(result) {
     }
   });
   
-=======
-  
-  sliderFunction(body[0], 'team__member-wrapp', 'team', sliderIndex);
-
->>>>>>> eb177a5d58553340e2f3b5d5c6796b56686f86a4
   return (
     `<div class="team">
       <div class="team__wrapper">
