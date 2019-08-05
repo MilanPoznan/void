@@ -91,3 +91,11 @@
     }
   }
 }
+
+@include desktop-lg() {
+  .hero {
+    &__content {
+      padding: 0 13%;
+    }
+  }
+}
