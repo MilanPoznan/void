@@ -65,6 +65,7 @@ export default function ekipaFilma(result) {
     <div class="team__cast-wrapp">
       <div class="team__full-cast">
         <div class="team__full-cast-inner">
+          <div class="team__full-cast-close">close</div>
           <h3 class="team__full-cast-title">${result.acf.full_cast_title}</h3>
           <div class="team__full-cast-content">
             ${result.acf.full_cast_content}
