@@ -1,6 +1,6 @@
 .team {
   position: relative;
-  margin-bottom: 105px;
+  margin-bottom: 80px;
   &__wrapper {
     width: 90%;
     margin: 0 auto;
@@ -30,7 +30,6 @@
     flex-direction: column;
     align-items: center;
     transition: 0.5s;
-
   }
   &__member-image {
     position: relative;
@@ -40,6 +39,7 @@
     background-position: center;
     background-size: cover;
     box-shadow: 10px 30px 30px -6px rgba(69, 90, 100, 0.25);
+    cursor: pointer;
   }
   &__member-name {
     position: relative;
@@ -132,8 +132,8 @@
     transition: .5s;
   }
   &__cast-link {
+    display: flex;
     margin-bottom: 100px;
-    // padding: 0 5% 100px;
     font-size: 16px;
     line-height: 16px;
     font-family: $raleway;
@@ -157,15 +157,14 @@
     &-inner {
       padding: 80px 0;
     }
-    h3 {
+    &-title {
       font-size: 20px;
       line-height: 24px;
       letter-spacing: 3.2px;
       color: $black;
-      text-align: center;
       font-family: $raleway-black;
     }
-    p:first-child {
+    p {
       font-size: 14px;
       font-family: $montserrat;
     }
@@ -176,10 +175,12 @@
 }
 .move-top {
   top: -420px;
+  cursor: pointer;
 }
 
 @include desktop() {
   .team {
+    margin-bottom: 0px;
     &__wrapper {
       max-width: 1200px;
     }
@@ -188,26 +189,56 @@
       justify-content: space-between;
     }
     &__member {
+      width: 33.33%;
       min-width: 0;
-      max-width: 280px;
+      height: 660px;
       margin-bottom: 40px;
     }
     &__member-wrapp {
       width: 100%;
     }
+    &__member-image {
+      height: 436px;
+    }
+    &__member-description {
+      padding: 0 25%;
+    }
+    &__member-name {
+      font-size: 30px;
+      line-height: 40px;
+      letter-spacing: 2px;
+    }
     &__slide {
       display: none;
     }
-
+    &__cast-link {
+      justify-content: flex-end;
+      margin-bottom: 100px;
+      font-size: 24px;
+      line-height: 44px;
+      letter-spacing: 1px;
+      text-align: left;
+    }
     &__full-cast {
       max-width: 1440px;
       margin: 0 auto;
 
-      &-inner {
+      &-title {
+        margin-bottom: 80px;
+        font-size: 34px;
+        line-height: 40px;
+      }
+      &-content {
         column-count: 2;
-        column-fill: balance;
+      }
+      p {
+        font-size: 16px;
+        line-height: 26px;
       }
     }
+  }
+  .move-top {
+    top: -500px;
   }
 }
 

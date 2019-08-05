@@ -17,7 +17,7 @@ export default function ekipaFilma(result) {
     if(e.target.parentNode.className === 'team__member-wrapp') {
       e.target.parentNode.className += ' move-top';
     } else if (e.target.parentNode.className === 'team__member-wrapp move-top') {
-      e.target.parentNode.classList.remove("move-top"); 
+      e.target.parentNode.classList.remove('move-top'); 
     }
   });
 
@@ -25,11 +25,8 @@ export default function ekipaFilma(result) {
     const el = document.querySelector('.team__cast-wrapp');
     const innerHeight = document.querySelector('.team__full-cast-inner').offsetHeight;
     const element = document.querySelector('.team__full-cast');
-    // console.log(innerHeight);
-
-
     const link = document.querySelector('.team__cast-link');
-    // console.log(element, link);
+    
     if(e.target === link) {
       el.style.height = `${innerHeight}px`;
       element.style.position = 'initial';
@@ -68,9 +65,10 @@ export default function ekipaFilma(result) {
     <div class="team__cast-wrapp">
       <div class="team__full-cast">
         <div class="team__full-cast-inner">
-        ${result.acf.ekipa_filma.map(item => `
-            ${item.full_cast}
-        `).join('')}
+          <h3 class="team__full-cast-title">${result.acf.full_cast_title}</h3>
+          <div class="team__full-cast-content">
+            ${result.acf.full_cast_content}
+          </div>
         </div>
       </div>
     </div>`
