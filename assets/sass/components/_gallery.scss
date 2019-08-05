@@ -1,0 +1,96 @@
+.project-galery {
+  // position: relative;
+  // overflow-x: hidden;
+  &__wrapper {
+    display: flex;
+    overflow-x: scroll;
+    position: relative;
+  }
+  &__item {
+    min-width: 48%;
+    height: 188px;
+    background-position: center;
+    background-size: cover;
+    filter: grayscale(1);
+    transition: 0.2s;
+    &:hover {
+    filter: grayscale(0.1);
+
+    }
+   }
+   &__slide {
+    position: absolute;
+    top: 50%;
+    background-attachment: fixed;
+    border: solid black;
+    border-width: 0 3px 3px 0;
+    display: inline-block;
+    padding: 3px;
+
+  }
+  &__prev {
+    left: 10px;
+    transform: rotate(135deg);
+  }
+  &__next {
+    right: 10px;
+    transform: rotate(-45deg);
+  }
+  &__modal {
+    position: absolute;
+    display: flex;
+    width: 100%;
+    top: 0;
+    bottom: 0;
+    background: rgba(0,0,0,0.8);
+    // visibility: collapse;
+    display: none;
+    transition: 0.5s;
+  }
+  &__modal-close {
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    color: $white;
+    top: 30px;
+    right: 30px;
+    width: 40px;
+    height: 40px;
+    cursor: pointer;
+    &:before, 
+    &:after {
+      content: '';
+      position: absolute;
+      display: block;
+      top: 0px;
+      width: 2px;
+      height: 30px;
+      background-color: $white;
+    }
+    &:before {
+      transform: rotate(45deg);
+    }
+    &:after {
+      transform: rotate(135deg);
+    }
+  }
+  &__image {
+    width: 100%;
+    height: auto;
+    margin-right: 50px;
+    padding: 50px;
+
+  }
+}
+.open-modal {
+  display: block;
+  z-index: 50;
+}
+
+@include desktop() {
+  .project-galery {
+    &__item {
+      min-width: 33.33%;
+    }
+  }
+}

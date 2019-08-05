@@ -184,6 +184,19 @@ em {
 // Prevent scroll
 .no-scroll {
 	overflow: hidden;
+	height: 100vh;
+}
+.site-content {
+	transition: 1.4s;
+	min-height: 100vh;
+	height: 100%;
+
+}
+@keyframes showContetn {
+	0% { opacity: 0.8; }
+	30% { opacity: 0.1; }
+	50% { opacity: 0; }
+	100% {opacity: 1; }
 }
 
 // image to background helper class

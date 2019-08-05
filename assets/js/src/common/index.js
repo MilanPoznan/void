@@ -4,8 +4,11 @@ import imageWithTitle from './components/image-with-title';
 import pressPage from './components/pressPage';
 import projectHero from './components/project-hero';
 import testimonialsSection from './components/testimonials';
+import projectGallery from './components/project-galery';
 import projectAbout from './components/project-about';
 import ekipaFilma from './components/project-ekipa';
+import galleryModal from './components/gallery-modal';
+
 //Elements
 const $menuItem = $('.menu-item a');
 const $mainContentDiv = $('.site-content');
@@ -39,6 +42,7 @@ function createFrontPage(result) {
   $mainContentDiv.append(infoContent(result));
   $mainContentDiv.append(imageWithTitle(result));
   $mainContentDiv.append(testimonialsSection(result));
+  
 }
 function createPressPage(result) {
   $mainContentDiv.append(pressPage(result));
@@ -53,6 +57,9 @@ function createProjectCPT(result) {
   $mainContentDiv.append(projectHero(result));
   $mainContentDiv.append(projectAbout(result));
   $mainContentDiv.append(ekipaFilma(result));
+  $mainContentDiv.append(projectGallery(result));
+  // $mainContentDiv.append(galleryModal(result));
+
 }
 
 function getProjectData() {
@@ -60,7 +67,7 @@ function getProjectData() {
     projectData.root_url + '/wp-json/wp/v2/projects',
     results => {
       results.map(result => {
-        console.log(result);
+        // console.log(result);
         history.pushState(result, '', projectData.root_url + '/projects/' + sliceUrl);
         if (result.slug == sliceUrl) {
           createProjectCPT(result);
@@ -76,7 +83,7 @@ function getPageData() {
     projectData.root_url + '/wp-json/wp/v2/pages',
     results => {
       results.map(result => {
-        console.log(result);
+        // console.log(result);
         let currentSliceUrl = sliceUrl;
         if (sliceUrl == 'void') {
           currentSliceUrl = 'frontpage';
@@ -131,7 +138,11 @@ $('.custom-logo-link').on('click', function(e) {
 })
 $menuItem.on('click', function(e) {
   console.log(e.target.parentNode.className);
-  
+  $('.site-content').css('opacity', '0');
+  setTimeout(() => {
+  $('.site-content').css('opacity', '1');
+    
+  }, 500);
   if (e.target.parentNode.className.includes('lang-item')) {
     console.log('asd');
   } else {

@@ -2,20 +2,34 @@
   position: relative;
   margin-bottom: 120px;
   // overflow-x: hidden;
-  padding: 40px 5%; 
-  &__background {
+  background: #e4e4e4;
+  padding: 40px 5% 80px; 
+  &:before {
+    content: '';
     position: absolute;
-    width: 140%;
-    top: 0;
-    left: -20%;
-    bottom: 0;
+    width: 100%;
+    top: -50px;
+    left: 0;
+    border-bottom: 50px solid #e4e4e4;
+    border-left: 100vw solid #f9f9f9;
     background: #e4e4e4;
-    transform: rotate(-5deg);
   }
+  &:after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    bottom: -50px;
+    left: 0;
+    border-top: 50px solid #e4e4e4;
+    border-right: 100vw solid #f9f9f9;
+    background: #e4e4e4;
+  }
+ 
   &__wrapper {
     position: relative;
   }
   &__slider {
+    position: relative;
     display: flex;
     flex-flow: row;
     overflow-x: hidden;
@@ -32,22 +46,39 @@
 
   }
   &__slide {
-    width: 10px;
-    height: 10px;
-    border-radius: 50%;
-    background: red;
     position: absolute;
-    bottom: 5%;
-
+    bottom: -35px;
+    border: solid black;
+    border-width: 0 4px 4px 0;
+    display: inline-block;
+    padding: 8px;
+    cursor: pointer;
   }
   &__prev {
     left: 30%;
+    transform: rotate(135deg);
+
   }
   &__middle {
+    position: absolute;
+    bottom: -30px;
     left: 50%;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    border: 2px solid $black;
   }
   &__next {
+    transform: rotate(-45deg);
     right: 30%;
+  }
+  &__quotations {
+    position: absolute;
+    top: 60px;
+    left: 20%;
+    width: 120px;
+    height: 95px;
+    background: url('./assets/img/quotes.jpg');
   }
   &__item-title {
     width: 80%;
@@ -64,7 +95,7 @@
     letter-spacing: 0.1em;
     font-family: $raleway;
     width: 60px;
-    margin: 0 auto 35px;
+    margin: 0 auto 25px;
     
   }
   &__item-content {
@@ -78,6 +109,49 @@
     } 
 
 
+  }
+}
+
+@include desktop() {
+  .testimonials-section {
+    padding: 120px 15%;
+    margin-bottom: 50px;
+    &__wrapper {
+      display: flex;
+      flex-flow: row-reverse;
+      justify-content: space-between;
+    }
+    &__slider {
+      margin: 0;
+      max-width: 300px;
+    }
+    &__title {
+      max-width: 364px;
+      h1 {
+        letter-spacing: 4.4px;
+        width: 100%;
+      }
+    }
+    &__item-content {
+      width: 90%;
+    }
+    &__item-subtitle {
+      width: 90%;
+    }
+    &__quotations {
+      top: 100px;
+      left: 0%;
+    }
+    &__prev {
+      left: 100px;
+    }
+    &__middle {
+      left: 135px;
+    }
+    &__next {
+      left: 160px;
+      right: auto;
+    }
   }
 }
 
