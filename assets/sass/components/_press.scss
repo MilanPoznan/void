@@ -1,4 +1,23 @@
 .press {
+  &__wrapper {
+    padding: 20px 5%;
+  }
+  &__section {
+    width: 100%;
+    display: flex;
+    flex-flow: column;
+    margin: 30px auto;
+    box-shadow: 10px 20px 60px rgba(0, 0, 0, 0.3);
+  }
+  &__top {
+    display: flex;
+    flex-flow: column;
+    position: relative;
+  }
+  &__image {
+
+  }
+
   &__top {
     position: relative;
   }
@@ -6,35 +25,41 @@
     position: relative;
     display: none;
   }
+  &__arrow-wrapp {
+    display: flex;
+    justify-content: flex-end;
+  }
   &__arrow {
     position: relative;
+    width: 40px;
     height: 40px;
-    width: 2px;
-    background-color: $black;
-    margin: 20px auto;
+    background: $blue;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    float: right;
     &:after {
       content: '';
-      position: absolute;
-      border: solid black;
+      border: solid $white;
       border-width: 0 2px 2px 0;
-      display: inline-block;
       padding: 8px;
+      transform: rotate(45deg);
+      transition: 0.5s;
     }
   }
-   &__top-arrow {
+  &__top-arrow  {
+    &--open {
+      &:after {
+        transform: rotate(-135deg);
+      }
+    }
+  }
+  &__bottom-arrow {
     &:after {
       content: '';
-      transform: rotate(45deg);
-      bottom: 0px;
+      transform: rotate(-135deg);
+      top: 0px;
       left: -8px;
-   } 
- } 
- &__bottom-arrow {
-  &:after {
-    content: '';
-    transform: rotate(-135deg);
-    top: 0px;
-    left: -8px;
-  } 
- }
+    } 
+  }
 }

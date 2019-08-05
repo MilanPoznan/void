@@ -9,6 +9,10 @@ import projectAbout from './components/project-about';
 import ekipaFilma from './components/project-ekipa';
 import galleryModal from './components/gallery-modal';
 
+
+//imgs 
+
+
 //Elements
 const $menuItem = $('.menu-item a');
 const $mainContentDiv = $('.site-content');
@@ -17,8 +21,12 @@ const $hamburgerWrapper = $('.hamburger-wrapp');
 const $hamburger = $('.hamburger');
 const $headerMenu = $('.header__menu');
 const $menu = $('.js-menu');
+const headerLogo = document.getElementById('header-logo');
+
 //Vars
 var sliceUrl;
+
+  // headerLogo.appendChild(image); 
 
 /* START navigation */
 $hamburgerWrapper.on('click', () => {
@@ -70,14 +78,24 @@ function getProjectData() {
         // console.log(result);
         history.pushState(result, '', projectData.root_url + '/projects/' + sliceUrl);
         if (result.slug == sliceUrl) {
+          // setFrontPageLogo(result.slug);
           createProjectCPT(result);
         }
       });
     }
   );
 }
-
-
+function setFrontPageLogo(page) {
+  
+  if (window.innerWidth > 1200) {
+    if (page === 'frontpage') {
+      $('#header-logo-img').attr('src', 'http://localhost:8888/void/wp-content/uploads/2019/08/logo-white-menu.png')
+    } else {
+      $('#header-logo-img').attr('src', 'http://localhost:8888/void/wp-content/uploads/2019/08/logo-black.png')
+    }
+  }
+  
+}
 function getPageData() {
   $.getJSON(
     projectData.root_url + '/wp-json/wp/v2/pages',
@@ -93,10 +111,10 @@ function getPageData() {
         if (result.slug == currentSliceUrl) {
           switch (result.slug) {
             case 'frontpage':
+            // setFrontPageLogo(result.slug);
               createFrontPage(result);
               break;
             case 'press': 
-                       
               createPressPage(result);
               break;
               default: 
@@ -108,7 +126,6 @@ function getPageData() {
     }
   )
 }
-
 
 function loadFrontPage(targetUrl) {
   $mainContentDiv.empty();
@@ -133,16 +150,17 @@ function getDataFromREST(e) {
 //Events 
 $('.custom-logo-link').on('click', function(e) {
   let targetUrl = e.target.parentNode.href;
+
   e.preventDefault();
   loadFrontPage(targetUrl);
 })
 $menuItem.on('click', function(e) {
-  console.log(e.target.parentNode.className);
-  $('.site-content').css('opacity', '0');
-  setTimeout(() => {
-  $('.site-content').css('opacity', '1');
+  // $('.site-content').css('opacity', '0');
+  // setTimeout(() => {
+  // $('.site-content').css('opacity', '1');
     
-  }, 500);
+  // }, 500);
+  
   if (e.target.parentNode.className.includes('lang-item')) {
     console.log('asd');
   } else {

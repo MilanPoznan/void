@@ -50,3 +50,16 @@
   }
 
 }
+
+@include desktop() {
+  .modal {
+    &__images {
+      padding: 100px;
+      background: darkgrey;
+    }
+    &__image {
+      width: auto;
+      margin: 0 auto;
+    }
+  }
+}

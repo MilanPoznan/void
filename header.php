@@ -25,9 +25,13 @@
 	<a class="skip-link screen-reader-text" href="#content"><?php esc_html_e( 'Skip to content', 'void' ); ?></a>
 
 	<header id="masthead" class="header">
-		<div class="header__logo">
+		<div class="header__logo" >
+			<a href="<?php echo get_home_url() ?>" id="header-logo">
+				<img id="header-logo-img" src="http://localhost:8888/void/wp-content/uploads/2019/08/logo-black.png" >
+			</a>
+			<!-- <img src="" />			 -->
 			<?php
-			the_custom_logo();
+			// the_custom_logo();
 			?>
 		</div><!-- .site-branding -->
 		<div class="header__hamburger-wrapp hamburger-wrapp">
