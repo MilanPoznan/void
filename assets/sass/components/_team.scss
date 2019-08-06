@@ -1,10 +1,10 @@
 .team {
   position: relative;
   margin-bottom: 80px;
-  &__wrapper {
-    width: 90%;
-    margin: 0 auto;
-  }
+  // &__wrapper {
+  //   width: 90%;
+  //   margin: 0 auto;
+  // }
   &__titles {
     margin-bottom: 90px;
   }
@@ -77,7 +77,7 @@
     position: relative;
     // width: 80%;
     // max-width: 250px;
-    margin-top: 40px;
+    margin-top: 60px;
     padding: 0 30px;
     font-size: 14px;
     line-height: 24px;
@@ -98,7 +98,7 @@
   }
   &__slide {
     position: absolute;
-    top: 50%;
+    top: 45%;
     width: 0;
     height: 0;
     // background-attachment: fixed;
@@ -189,12 +189,34 @@
   cursor: pointer;
 }
 
+@include tablet() {
+  .team {
+    margin-bottom: 60px;
+
+    &__member-description {
+      padding: 0 60px;
+    }
+    &__prev {
+      left: 60px;
+    }
+    &__next {
+      right: 60px;
+    }
+    &__cast-link {
+      margin-bottom: 80px;
+    }
+  }
+}
+
 @include desktop() {
   .team {
     margin-bottom: 0px;
-    &__wrapper {
-      max-width: 1200px;
-    }
+    // &__wrapper {
+    //   width: 90%;
+    //   max-width: 1200px;
+    //   margin: 0 auto;
+    //   padding: 0;
+    // }
     &__peoples-slider {
       flex-wrap: wrap;
       justify-content: space-between;
@@ -212,7 +234,7 @@
       height: 436px;
     }
     &__member-description {
-      padding: 0 25%;
+      padding: 0 20%;
     }
     &__member-name {
       font-size: 30px;

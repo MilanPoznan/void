@@ -39,10 +39,10 @@ export default function ekipaFilma(result) {
   });
   
   return (
-    `<div class="team">
-    <div class="team__wrapper">
+    `<div class="team wrapper">
+    
       <div class="team__titles">
-        <h3>${result.acf.team_subtitle}</h3> 
+        <h4>${result.acf.team_subtitle}</h4> 
         <h1>${result.acf.team_title}</h1>
       </div>
       <div class="team__peoples-slider">
@@ -57,7 +57,7 @@ export default function ekipaFilma(result) {
           </div>`  
         ).join('')}
       </div>
-    </div>
+    
       <span class="team__prev team__slide"></span>
       <span class="team__next team__slide"></span>
     </div>

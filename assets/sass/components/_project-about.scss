@@ -1,5 +1,5 @@
 .about-project {
-  padding-bottom: 70px;
+  padding-bottom: 40px;
 
   &__description  {
     display: flex;
@@ -23,6 +23,14 @@
           margin-bottom: 0;
         }
       }
+    }
+  }
+}
+
+@include tablet() {
+  .about-project {
+    &__box {
+
     }
   }
 }

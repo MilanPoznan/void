@@ -58,8 +58,9 @@ h5 {
 }
 h1 {
 	position: relative;
-	font-size: 30px;
-	letter-spacing: 4.8px;
+	font-size: 24px;
+	line-height: 28px;
+	letter-spacing: 2px;
 	text-transform: uppercase;
 	width: 80%;
 
@@ -70,16 +71,14 @@ h1 {
 		position: absolute;
 		width: 85px;
 		height: 15px;
-		// margin-top: 20px;
 		background: $blue;
 	}
 
 }
 h2 {
 	position: relative;
-	margin-bottom: 30px;
-	font-size: 24px;
-	letter-spacing: 4.8px;
+	margin-bottom: 24px;
+	font-size: 28px;
 	font-family: $raleway-bold;
 
 	&:after {
@@ -93,9 +92,18 @@ h2 {
 	}
 }
 h3 {
-	font-size: 18px;
-	letter-spacing: 1.8px;
 	margin-bottom: 20px;
+	font-size: 30px;
+	line-height: 40px;
+	letter-spacing: 2px;
+	font-family: $raleway;
+	color: $grey;
+}
+h4 {
+	margin-bottom: 20px;
+	font-size: 18px;
+	line-height: 22px;
+	letter-spacing: 2px;
 	font-family: $raleway;
 	color: $grey;
 }
@@ -118,23 +126,23 @@ a {
 em {
 	font-style: italic;
 }
-.js-alert-text {
-	position: absolute;
-	opacity: 0;
-	transition: 0.3s;
-	width: 50%;
-	bottom: 10vh;
-	color: $white;
-	font-family: $Segoeui;
-	text-align: center;
-	font-size: 8px;
-	line-height: 18px;
-	letter-spacing: 0.4px;
-	z-index: 1111;
-	a {
-		color: red;
-	}
-}
+// .js-alert-text {
+// 	position: absolute;
+// 	opacity: 0;
+// 	transition: 0.3s;
+// 	width: 50%;
+// 	bottom: 10vh;
+// 	color: $white;
+// 	font-family: $Segoeui;
+// 	text-align: center;
+// 	font-size: 8px;
+// 	line-height: 18px;
+// 	letter-spacing: 0.4px;
+// 	z-index: 1111;
+// 	a {
+// 		color: red;
+// 	}
+// }
 
 .qr_map-wrapper {
 	width: 100%;
@@ -142,30 +150,29 @@ em {
 .wrapper {
 	padding: 0 5%;
 }
-.post-password-form {
-	margin: 20% 5%;
-	display: flex;
-	flex-flow: column;
-	align-items: center;
-	justify-content: center;
-	p {
-		margin-bottom: 20px;
-		font-family: $Segoeui;
-		text-align: center;
-	}
-	input {
-		outline: none;
-		border: 1px solid;
-	}
-}
+// .post-password-form {
+// 	margin: 20% 5%;
+// 	display: flex;
+// 	flex-flow: column;
+// 	align-items: center;
+// 	justify-content: center;
+// 	p {
+// 		margin-bottom: 20px;
+// 		font-family: $Segoeui;
+// 		text-align: center;
+// 	}
+// 	input {
+// 		outline: none;
+// 		border: 1px solid;
+// 	}
+// }
 .content {
 	font-size: 16px;
 	line-height: 1.4;
 	text-align: left;
 
 	h1 {
-		font-size: 22px;
-		line-height: 1.4;
+
 	}
 
 	h2 {
@@ -214,30 +221,30 @@ img[class$='-imgtobg'] {
 		color: $white;
 	}
 }
-.thankyou-page {
-	margin: 20% 5%;
-	font-family: $Segoeui;
-	h1 {
-		font-size: 18px;
-		margin-bottom: 10px;
-	}
-}
-.sec-title {
-	font-size: 22px;
-	position: relative;
-	margin-bottom: 25px;
-	font-family: $Exo2;
-	color: $black-text;
-	&:before {
-		content: '';
-		position: absolute;
-		display: block;
-		width: 65px;
-		height: 4px;
-		bottom: -21px;
-		background-color: red;
-	}
-}
+// .thankyou-page {
+// 	margin: 20% 5%;
+// 	font-family: $Segoeui;
+// 	h1 {
+// 		font-size: 18px;
+// 		margin-bottom: 10px;
+// 	}
+// }
+// .sec-title {
+// 	font-size: 22px;
+// 	position: relative;
+// 	margin-bottom: 25px;
+// 	font-family: $Exo2;
+// 	color: $black-text;
+// 	&:before {
+// 		content: '';
+// 		position: absolute;
+// 		display: block;
+// 		width: 65px;
+// 		height: 4px;
+// 		bottom: -21px;
+// 		background-color: red;
+// 	}
+// }
 a.disabled {
 	// pointer-events: none;
 }
@@ -249,13 +256,16 @@ a.disabled {
 	.wrapper {
 		padding: 0 7%;
 	}
+	h1 {
+		font-size: 32px;
+		letter-spacing: 2px;
+	}
 	h2 {
-		// font-size: 44px;
-		// line-height: 0.92;
+		font-size: 30px;
 	}
 	p {
 		font-size: 16px;
-		line-height: 30px;
+		line-height: 32px;
 	}
 }
 
@@ -266,7 +276,7 @@ a.disabled {
 	h1 {
 		font-size: 44px;
 		line-height: 52px;
-		letter-spacing: 2px;
+		// letter-spacing: 2px;
 
 		&::after {
 			bottom: -40px;
@@ -287,7 +297,7 @@ a.disabled {
 	}
 	h2 {
 		font-size: 36px;
-		line-height: 28px;
+		// line-height: 28px;
 
 		&:after {
 			bottom: -40px;
