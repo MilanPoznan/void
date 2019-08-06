@@ -1,5 +1,6 @@
 import videoSection from './components/video';
 import infoContent from './components/info';
+import bioPage from './components/bioPage';
 import imageWithTitle from './components/image-with-title';
 import pressPage from './components/pressPage';
 import projectHero from './components/project-hero';
@@ -46,6 +47,9 @@ function createFrontPage(result) {
 }
 function createPressPage(result) {
   $mainContentDiv.append(pressPage(result));
+}
+function createBioPage(result) {
+  $mainContentDiv.append(bioPage(result));
 }
 
 function createDefautlPageTemplate(result) {
@@ -96,8 +100,10 @@ function getPageData() {
               createFrontPage(result);
               break;
             case 'press': 
-                       
               createPressPage(result);
+              break;
+            case 'bio':
+              createBioPage(result);
               break;
               default: 
                 createDefautlPageTemplate();
