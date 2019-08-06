@@ -109,14 +109,14 @@
 
   }
   &__prev {
-    left: 13px;
+    left: 5%;
     border-top: 13px solid transparent;
     border-bottom: 13px solid transparent;
     border-right: 13px solid $gray-white;
     // transform: rotate(135deg);
   }
   &__next {
-    right: 13px;
+    right: 5%;
     border-top: 13px solid transparent;
     border-bottom: 13px solid transparent;
     border-left: 13px solid #c4c4c4;
@@ -197,10 +197,10 @@
       padding: 0 60px;
     }
     &__prev {
-      left: 60px;
+      left: 7%;
     }
     &__next {
-      right: 60px;
+      right: 7%;
     }
     &__cast-link {
       margin-bottom: 80px;
