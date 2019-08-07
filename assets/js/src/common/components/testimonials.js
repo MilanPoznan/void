@@ -9,11 +9,11 @@ export default function testimonialsSection(result) {
 
   return (
     `
-    <div class="testimonials-section wrapper">
+    <div class="testimonials-section">
       <div class="testimonials-section__wrapper">
-        <div class="testimonials-section__title">
-          <h4>testimonials</h4>
-          <h1>${result.acf.testimonials_title}</h1>
+        <div class="testimonials-section__titles">
+          <h4 class="testimonials-section__titles-subtitle">testimonials</h4>
+          <h1 class="testimonials-section__titles-title">${result.acf.testimonials_title}</h1>
         </div>
         <div class="testimonials-section__slider">
         <div class="testimonials-section__quotations"></div>

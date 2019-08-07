@@ -9,12 +9,12 @@ export default function projectHero(result) {
             <h1 class="hero__titles-title">${result.title.rendered}</h1>
           </div>
           <div class="hero__short-info">
-          ${result.acf.project_details.map(item => `<div>${item.project_detail}</div>`).join('')}
-          <div class="hero__short-info-links">
-            ${result.acf.project_external_links.map(item =>
-              `<a target="_blank" href="${item.url}" style="background-image: url('${item.icon}')"></a>`
-            ).join('')}
-          </div>
+            ${result.acf.project_details.map(item => `<div>${item.project_detail}</div>`).join('')}
+            <div class="hero__short-info-links">
+              ${result.acf.project_external_links.map(item =>
+                `<a target="_blank" href="${item.url}" style="background-image: url('${item.icon}')"></a>`
+              ).join('')}
+            </div>
           </div>
         </div>
       </div>

@@ -9,7 +9,7 @@
   &__titles {
     margin-bottom: 80px;
     &-title {
-      // to do
+      letter-spacing: 2px;
     }
     &-subtitle {
       margin-bottom: 20px;
@@ -31,9 +31,17 @@
   &__content {
     &-name {
       margin-bottom: 30px;
+      font-size: 24px;
+      line-height: 46px;
+      font-family: $raleway-bold;
+      color: $black;
+
+      &::after {
+        content: none;
+      }
     }
     &-text {
-      // to do
+      letter-spacing: 1px;
     }
   }
 }
@@ -74,6 +82,11 @@
     }
     &__content {
       width: 500px;
+
+      &-name {
+        font-size: 36px;
+        letter-spacing: 6px;
+      }
     }
   }
 }

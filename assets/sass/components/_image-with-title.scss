@@ -2,7 +2,7 @@
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
-  margin-bottom: 100px; // temp
+  margin-bottom: 100px;
 
   &__wrapper {
     width: 42%;
@@ -57,24 +57,23 @@
 
 @include desktop() {
   .image-text-component {
+    margin-bottom: 130px;
     &__wrapper {
       margin-bottom: 0;
+      width: 60%;
+      height: 450px;
       
-      &:nth-child(odd) {
-        width: 55%;
-      }
       &:nth-child(even) {
         width: 35%;
         margin-top: 80px;
+        height: 480px;
+      }
+      &:nth-child(2n+3) {
+        margin-top: -20px;
       }
     }
-    &__link {
-      &:nth-child(odd) {
-        height: 450px;
-      }
-      &:nth-child(even) {
-        height: 500px;
-      }
+    &__link {     
+      height: 100%;
     }
   }
 }
