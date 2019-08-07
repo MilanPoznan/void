@@ -1,0 +1,62 @@
+.about-project {
+  padding-bottom: 40px;
+
+  &__description  {
+    display: flex;
+    flex-direction: column;
+  }
+  &__box {
+    display: flex;
+    flex-direction: column;   
+    margin-bottom: 40px;
+    &:first-child {
+      p {
+        font-size: 16px;
+        line-height: 26px;
+        font-family: $montserrat-bold; 
+      }
+    }
+
+    &-content{
+      p {
+        &:last-child {
+          margin-bottom: 0;
+        }
+      }
+    }
+  }
+}
+
+@include tablet() {
+  .about-project {
+    &__box {
+
+    }
+  }
+}
+
+@include desktop() {
+  .about-project {
+    &__description {
+      flex-direction: row;
+    }
+    &__box {
+      h2 {
+        margin-bottom: 75px;
+      }
+      &:first-child {
+        margin-right: 25px;
+        margin-bottom: 0;
+        font-size: 18px;
+        line-height: 28px;
+      }
+      &-content {
+
+        &:last-child {
+          columns: 2 300px;
+          column-gap: 25px;
+        }
+      }
+    }
+  }
+}

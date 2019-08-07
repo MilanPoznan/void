@@ -1,7 +1,7 @@
 export default function pressPage(result) {
   
   function toggleBottomPress(e) {
-    console.log(e.taget);
+    console.log(e.target);
   }
   $('.content-wrapper').on('click', '.press__arrow-wrap', (e) => {
     console.log(e.target.next);
