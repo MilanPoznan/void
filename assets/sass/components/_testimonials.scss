@@ -165,3 +165,12 @@
   }
 }
 
+@include desktop-lg() {
+  .testimonials-section {
+    &__wrapper {
+      max-width: 1440px;
+      margin: 0 auto;
+    }
+  }
+}
+
