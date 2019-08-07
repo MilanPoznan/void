@@ -1,12 +1,18 @@
 .bio {
   margin: 50px 0 90px;
+  &__wrapper {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    padding: 0 5%;
+  }
   &__titles {
-    margin-bottom: 50px;
+    margin-bottom: 80px;
     &-title {
       // to do
     }
     &-subtitle {
-      // to do
+      margin-bottom: 20px;
     }
   }
   &__container {
@@ -35,6 +41,9 @@
 @include tablet {
   .bio {
     margin: 70px 0 100px;
+    &__wrapper {
+      padding: 0 7%;
+    }
     &__titles {
       margin-bottom: 90px;
     }
@@ -47,6 +56,11 @@
   .bio {
     margin: 100px 0 110px;
 
+    &__wrapper {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 5%;
+    }
     &__titles {
       margin-bottom: 130px;
     }
@@ -55,11 +69,26 @@
       justify-content: space-between; 
     }
     &__image {
-      width: 500px;
+      max-width: 500px;
       height: 350px;
     }
     &__content {
       width: 500px;
+    }
+  }
+}
+
+@include desktop-lg() {
+  .bio {
+    &__wrapper {
+      max-width: 1366px;
+      padding: 0;
+    }
+    &__image {
+      max-width: 600px;
+    }
+    &__content {
+      width: 600px;
     }
   }
 }
