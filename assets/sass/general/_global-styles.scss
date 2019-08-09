@@ -327,6 +327,9 @@ a.disabled {
 	}
 }
 @include desktop-xlg() {
+	.wrapper {
+		max-width: 1920px;
+	}
 	h2 {
 		font-size: 58px;
 		line-height: 56px;

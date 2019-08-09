@@ -66,6 +66,7 @@
   .hero {
     &__wrapper {
       flex-direction: row-reverse;
+      justify-content: space-between;
       margin-bottom: 150px;
     }
     &__image {
@@ -75,7 +76,7 @@
     &__content {
       align-self: flex-end;
       margin: 0;
-      padding: 0 10%;
+      // padding: 0 10%;
     }
     &__titles {
 
@@ -106,14 +107,18 @@
 
 @include desktop-lg() {
   .hero {
+    max-width: 1440px;
+    margin: 0 auto;
     &__content {
-      padding: 0 13%;
+      // padding: 0 13%;
+      padding: 0;
     }
   }
 }
 
 @include desktop-xlg() {
   .hero {
+    max-width: 1920px;
     &__image {
       min-height: 950px;
     }

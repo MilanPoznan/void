@@ -159,6 +159,10 @@
     } 
   }
   .header {
+    height: 100px;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0;
     background: transparent;
     &__hamburger-wrapp {
       display: none;
@@ -171,5 +175,16 @@
       opacity: 1;
       background: transparent;
     }
+  }
+}
+
+@include desktop-lg() {
+  .header {
+    max-width: 1440px;
+  }
+}
+@include desktop-xlg() {
+  .header {
+    max-width: 1920px;
   }
 }

@@ -1,9 +1,25 @@
 export default function projectHero(result) {
+  // const body = document.getElementsByTagName('body');
+  // const windowWidth = window.innerWidth;
+  // console.log(windowWidth);
+  // const maxWrappWidth = 1440;
+  // const leftPadding = ((windowWidth - maxWrappWidth) / 2);
+  // console.log(leftPadding);
+  // const contentDiv = document.querySelector('#content');
+  // console.log(contentDiv);
+  
+  // body[0].addEventListener('DOMContentLoaded', () => {  
+  //     // if(windowWidth >= 1600) {
+  //     //   contentDiv.style.padding = leftPadding;
+  //     // }
+  //     console.log('Pera');
+  // });
+  
   return (
     `<div class="hero">
       <div class="hero__wrapper">
         <div class="hero__image" style="background-image: url('${result.acf.project_image}')"></div>
-        <div class="hero__content">
+        <div id="content" class="hero__content">
           <div class="hero__titles">
             <h4 class="hero__titles-subtitle">${result.acf.project_description}</h4>
             <h1 class="hero__titles-title">${result.title.rendered}</h1>
