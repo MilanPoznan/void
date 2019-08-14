@@ -271,6 +271,8 @@ a.disabled {
 
 @include desktop() {
 	.wrapper {
+		// max-width: 1200px;
+		// margin: 0 auto;
 		padding: 0 7%;
 	}
 	h1 {
@@ -327,6 +329,9 @@ a.disabled {
 	}
 }
 @include desktop-xlg() {
+	.wrapper {
+		// max-width: 1920px;
+	}
 	h2 {
 		font-size: 58px;
 		line-height: 56px;
