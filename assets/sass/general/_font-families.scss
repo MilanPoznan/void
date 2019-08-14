@@ -2,42 +2,6 @@
 * Font families *
 ****************/
 
-// Families definitions
-// Temporarily here until we clear the files
-@font-face {
-	font-family: 'Exo2-Bold';
-	src: url('./fonts/Exo2-Bold.ttf') format('truetype');
-	font-weight: normal;
-}
-@font-face {
-	font-family: 'DanteMTStd-Regular';
-	src: url('assets/fonts/DanteMTStd-Regular.woff') format('woff');
-	font-weight: normal;
-}
-@font-face {
-	font-family: 'Exo2 Medium';
-	src: url('assets/fonts/Exo2-Medium.ttf') format('truetype');
-	font-weight: normal;
-}
-@font-face {
-	font-family: 'Exo2 Light';
-	src: url('assets/fonts/Exo2-Light.ttf') format('truetype');
-	font-weight: normal;
-}
-@font-face {
-	font-family: 'Exo2 Regular';
-	src: url('assets/fonts/Exo2-Regular.ttf') format('truetype');
-	font-weight: normal;
-}
-@font-face {
-	font-family: 'Segoeui';
-	src: url('assets/fonts/segoeui.ttf') format('truetype');
-	font-weight: normal;
-}
-
-/**
- * Use this fonts
- */
 @font-face {
 	font-family: 'Raleway Regular';
 	src: url('assets/fonts/Raleway-Regular.ttf') format('woff2');
@@ -71,9 +35,3 @@ $raleway-black: 'Raleway Black';
 $montserrat: 'Montserrat Regular';
 $montserrat-bold: 'Montserrat Bold';
 
-$Exo2: 'Exo2 Regular';
-$Exo2-light: 'Exo2 Light';
-$Exo2-medium: 'Exo2 Medium';
-$Exo2-bold: 'Exo2-Bold';
-$Segoeui: 'Segoeui';
-$dante: 'DanteMTStd-Regular';
