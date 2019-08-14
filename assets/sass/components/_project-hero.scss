@@ -76,7 +76,6 @@
     &__content {
       align-self: flex-end;
       margin: 0;
-      // padding: 0 10%;
     }
     &__titles {
 
@@ -107,18 +106,24 @@
 
 @include desktop-lg() {
   .hero {
-    max-width: 1440px;
-    margin: 0 auto;
+    // max-width: 1440px;
+    // margin: 0 auto;
     &__content {
       // padding: 0 13%;
-      padding: 0;
+      // padding: 0;
     }
   }
 }
 
 @include desktop-xlg() {
   .hero {
-    max-width: 1920px;
+    &__wrapper {
+      // max-width: 1440px;
+      // margin: 0 auto;
+    }
+    &__content {
+      padding: 0;
+    }
     &__image {
       min-height: 950px;
     }
