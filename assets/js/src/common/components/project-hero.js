@@ -1,10 +1,10 @@
 export default function projectHero(result) {
-  const body = document.getElementsByTagName('body');
+  // const body = document.getElementsByTagName('body');
   const windowWidth = window.innerWidth;
   const maxWrappWidth = 1440;
   
   const padding = () => ((windowWidth - maxWrappWidth) / 2);
-  if(windowWidth >= 1200 ) {
+  if(windowWidth >= 1600 ) {
     padding();
   } 
    
