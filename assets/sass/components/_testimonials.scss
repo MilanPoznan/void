@@ -172,4 +172,11 @@
     }
   }
 }
+@include desktop-xlg() {
+  .testimonials-section {
+    &__wrapper {
+      max-width: 1920px;
+    }
+  }
+}
 

@@ -154,6 +154,8 @@ img[class$='-imgtobg'] {
 
 @include desktop() {
 	.wrapper {
+		// max-width: 1200px;
+		// margin: 0 auto;
 		padding: 0 7%;
 	}
 	h1 {
@@ -188,4 +190,3 @@ img[class$='-imgtobg'] {
 		padding: 0;
 	}
 }
-
