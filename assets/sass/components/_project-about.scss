@@ -27,14 +27,6 @@
   }
 }
 
-@include tablet() {
-  .about-project {
-    &__box {
-
-    }
-  }
-}
-
 @include desktop() {
   .about-project {
     &__description {
