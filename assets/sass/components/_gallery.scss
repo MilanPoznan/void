@@ -1,6 +1,4 @@
 .project-galery {
-  // position: relative;
-  // overflow-x: hidden;
   &__wrapper {
     display: flex;
     overflow-x: scroll;
@@ -43,7 +41,6 @@
     top: 0;
     bottom: 0;
     background: rgba(0,0,0,0.8);
-    // visibility: collapse;
     display: none;
     transition: 0.5s;
   }

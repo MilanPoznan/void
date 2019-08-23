@@ -1,7 +1,6 @@
 .testimonials-section {
   position: relative;
   margin-bottom: 120px;
-  // overflow-x: hidden;
   background: #e4e4e4;
   padding: 40px 5% 80px; 
   &:before {
@@ -112,9 +111,15 @@
   }
 }
 
+@include tablet() {
+  .testimonials-section {
+    padding: 40px 7% 80px; 
+  }
+}
+
 @include desktop() {
   .testimonials-section {
-    padding: 120px 15%;
+    padding: 120px 7%;
     margin-bottom: 50px;
     &__wrapper {
       display: flex;
@@ -125,11 +130,15 @@
       margin: 0;
       max-width: 300px;
     }
-    &__title {
-      max-width: 364px;
-      h1 {
-        letter-spacing: 4.4px;
+    &__titles {
+      max-width: 425px;
+      text-align: right;
+      &-title {
         width: 100%;
+        &::after {
+          left: auto;
+          right: 0;
+        }
       }
     }
     &__item-content {
@@ -151,6 +160,22 @@
     &__next {
       left: 160px;
       right: auto;
+    }
+  }
+}
+
+@include desktop-lg() {
+  .testimonials-section {
+    &__wrapper {
+      max-width: 1440px;
+      margin: 0 auto;
+    }
+  }
+}
+@include desktop-xlg() {
+  .testimonials-section {
+    &__wrapper {
+      max-width: 1920px;
     }
   }
 }

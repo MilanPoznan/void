@@ -1,44 +1,268 @@
 .team {
   position: relative;
-  &__wrapper {
-    width: 90%;
-    margin: 0 auto;
-    
+  margin-bottom: 80px;
+  
+  &__titles {
+    margin-bottom: 90px;
   }
   &__peoples-slider {
     display: flex;
     overflow-x: hidden;
   }
-  &__member-wrapp {
-    min-width: 100%;
-    width: 100%;
+  &__member {
+    position: relative;
     display: flex;
     flex-flow: column;
-    position: relative;
+    align-items: center;
+    min-width: 100%;
+    width: 100%;
+    height: 570px;
+    transition: 0.5s;
+    overflow: hidden;
+  }
+  &__member-wrapp {
+    position: absolute;
+    top: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     transition: 0.5s;
   }
   &__member-image {
-    width: 100%;
-    height: 250px;
+    position: relative;
+    width: 80%;
+    height: 350px;
+    margin-bottom: 80px;
     background-position: center;
     background-size: cover;
+    box-shadow: 10px 30px 30px -6px rgba(69, 90, 100, 0.25);
+    cursor: pointer;
+  }
+  &__member-name {
+    position: relative;
+    width: 230px;
+    font-size: 24px;
+    line-height: 34px;
+    letter-spacing: 3.2px;
+    font-family: $raleway-black;
+    text-transform: uppercase;
+    color: $black;
+    text-align: center;
+
+    &::before {
+      content: '';
+      position: absolute;
+      left: 50%;
+      top: -30px;
+      width: 35px;
+      height: 5px;
+      background: $black;
+      transform: translate(-50%);
+    }
+  }
+  &__member-position {
+    width: 230px;
+    font-size: 18px;
+    line-height: 22px;
+    letter-spacing: 3.2px;
+    color: $gray;
+    font-family: $montserrat;
+    text-transform: lowercase;
+    text-align: center;
+  }
+  &__member-description {
+    position: relative;
+    margin-top: 60px;
+    padding: 0 30px;
+    font-size: 14px;
+    line-height: 24px;
+    font-family: $montserrat;
+    color: $black-2;
+    text-align: center;
+
+    &::after {
+      content: '';
+      position: absolute;
+      left: 50%;
+      bottom: -30px;
+      width: 35px;
+      height: 5px;
+      background: $black;
+      transform: translate(-50%);
+    }
   }
   &__slide {
     position: absolute;
-    top: 50%;
-    background-attachment: fixed;
-    border: solid black;
-    border-width: 0 3px 3px 0;
-    display: inline-block;
-    padding: 3px;
-
+    top: 45%;
+    width: 0;
+    height: 0;
   }
   &__prev {
-    left: 10px;
-    transform: rotate(135deg);
+    left: 5%;
+    border-top: 13px solid transparent;
+    border-bottom: 13px solid transparent;
+    border-right: 13px solid $gray-white;
   }
   &__next {
-    right: 10px;
-    transform: rotate(-45deg);
+    right: 5%;
+    border-top: 13px solid transparent;
+    border-bottom: 13px solid transparent;
+    border-left: 13px solid #c4c4c4;
+  }
+
+  &__cast-wrapp {
+    height: 0;
+    position: relative;
+    overflow: hidden;
+    padding: 0 5%;
+    background-color: rgba(228, 228, 228, 0.4);
+    transition: .5s;
+  }
+  &__cast-link {
+    display: flex;
+    margin-bottom: 100px;
+    font-size: 16px;
+    line-height: 16px;
+    font-family: $raleway;
+    color: $blue;
+    cursor: pointer;
+  }
+
+  &__full-cast {
+    display: flex;
+    position: absolute;
+    top: 0;
+    right: 5%;
+    left: 5%;
+    bottom: 0;
+    flex-flow: column;
+    font-size: 14px;
+    line-height: 24px;
+    font-family: $montserrat;
+    transition: all .5s;
+
+    &-inner {
+      padding: 80px 0;
+    }
+    &-close {
+      display: flex;
+      justify-content: flex-end;
+      margin-bottom: 50px;
+      font-size: 16px;
+      letter-spacing: 1px;
+      font-family: $raleway;
+      color: $blue;
+      cursor: pointer;
+    }
+    &-title {
+      margin-bottom: 50px;
+      font-size: 20px;
+      line-height: 24px;
+      letter-spacing: 3.2px;
+      color: $black;
+      font-family: $raleway-black;
+    }
+    p {
+      font-size: 14px;
+      font-family: $montserrat;
+    }
+    b, strong {
+      font-family: $montserrat-bold;
+    }
+  }
+}
+.move-top {
+  top: -420px;
+  cursor: pointer;
+}
+
+@include tablet() {
+  .team {
+    margin-bottom: 60px;
+
+    &__member-description {
+      padding: 0 60px;
+    }
+    &__prev {
+      left: 7%;
+    }
+    &__next {
+      right: 7%;
+    }
+    &__cast-link {
+      margin-bottom: 80px;
+    }
+  }
+}
+
+@include desktop() {
+  .team {
+    margin-bottom: 0px;
+    &__peoples-slider {
+      flex-wrap: wrap;
+      justify-content: space-between;
+    }
+    &__member {
+      width: 33.33%;
+      min-width: 0;
+      height: 660px;
+      margin-bottom: 40px;
+    }
+    &__member-wrapp {
+      width: 100%;
+    }
+    &__member-image {
+      height: 436px;
+    }
+    &__member-description {
+      padding: 0 20%;
+    }
+    &__member-name {
+      font-size: 30px;
+      line-height: 40px;
+      letter-spacing: 2px;
+    }
+    &__slide {
+      display: none;
+    }
+    &__cast-link {
+      justify-content: flex-end;
+      margin-bottom: 100px;
+      font-size: 24px;
+      line-height: 44px;
+      letter-spacing: 1px;
+      text-align: left;
+    }
+    &__full-cast {
+      max-width: 1440px;
+      margin: 0 auto;
+      &-close {
+        font-size: 24px;
+        line-height: 44px;
+      }
+      &-title {
+        margin-bottom: 80px;
+        font-size: 34px;
+        line-height: 40px;
+      }
+      &-content {
+        column-count: 2;
+      }
+      p {
+        font-size: 16px;
+        line-height: 26px;
+      }
+    }
+  }
+  .move-top {
+    top: -500px;
+  }
+}
+
+@include desktop-lg() {
+  .team {
+    &__wrapper {
+      max-width: 1440px;
+    }
   }
 }

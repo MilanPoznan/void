@@ -25,7 +25,7 @@ export default function pressPage(result) {
           item => `
             <div class="press__section">
               <div class="press__top">
-                <div class="press__image" style="background: url('${item.section_image.url}')"></div>
+                <div class="press__image" style="background-image: url('${item.section_image.url}')"></div>
                 <div class="press__title">${item.section_title}</div>
                 <div class="press__subtitle">${item.section_subtitle}</div>
                 <div class="press__arrow-wrap">

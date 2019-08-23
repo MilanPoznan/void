@@ -8,12 +8,6 @@
     margin-bottom: 40px;
     &-title {
       width: 50%;
-      font-size: 24px;
-      letter-spacing: 2.4px;
-    }
-    &-subtitle {
-      font-family: $raleway;
-      color: $gray;
     }
   }
   &__container {
@@ -67,23 +61,9 @@
 
     &__titles {
       margin-bottom: 60px;
-
-      &-title {
-        font-size: 32px;
-        letter-spacing: 3.4px;
-      }
-      &-subtitle {
-        font-size: 24px;
-        letter-spacing: 2.8px;
-      }
     }
     &__container {
       padding-top: 70px;
-      &-text {
-        margin-bottom: 35px;
-        font-size: 16px;
-        line-height: 30px;
-      }
       &-link {
         font-size: 22px;
       }
@@ -94,22 +74,17 @@
 @include desktop() {
   .info {
     flex-direction: row;
-    justify-content: space-between;
 
     &__titles {
+      width: 40%;
       &-title {
         font-size: 44px;
         line-height: 44px;
         letter-spacing: 4.4px;
       }
-      &-subtitle {
-        font-size: 30px;
-        line-height: 44px;
-        letter-spacing: 3px;
-      }
     }
     &__container {
-      width: 55%;
+      width: 60%;
       padding-top: 0px;
       &-text {
         margin-bottom: 50px;
@@ -120,5 +95,12 @@
         letter-spacing: 2px;        
       }
     }
+  }
+}
+
+@include desktop-lg() {
+  .info {
+    margin: 0 auto;
+    padding: 80px 0; 
   }
 }

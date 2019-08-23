@@ -15,15 +15,9 @@
     width: 140px;
     display: flex;
     position: relative;
-    a {
-      display: block;
-      z-index: 10;
-      width: auto;
-      height: auto;
-    }
+  
     img {
       width: auto;
-      z-index: 100;
       height: 40px;
     }
   }
@@ -97,7 +91,6 @@
     ul {
       position: absolute;
       transition: 0.5s;
-      // top: -90px;
       top: 80px;
       left: -60px;
       width: 180px;
@@ -165,7 +158,11 @@
     } 
   }
   .header {
-    // background: transparent;
+    height: 100px;
+    // max-width: 1200px;
+    // margin: 0 auto;
+    padding: 0 7%;
+    background: transparent;
     &__hamburger-wrapp {
       display: none;
     }
@@ -178,12 +175,17 @@
       background: transparent;
     }
   }
-  .home {
-    // .header {
-    //   .menu-item {
-    //     color: #fff;
-    //   }
+}
 
-    // }
+@include desktop-lg() {
+  .header {
+    max-width: 1440px;
+    margin: 0 auto;
+    padding: 0;
   }
 }
+// @include desktop-xlg() {
+//   .header {
+//     // max-width: 1920px;
+//   }
+// }
