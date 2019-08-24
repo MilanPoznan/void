@@ -113,6 +113,7 @@
     padding-bottom: 100px;
     &__menu {
       justify-content: flex-start;
+     
       li {
         margin-right: 30px;
       }
@@ -142,6 +143,7 @@
     li {
       margin-right: 54px;
       .sub-menu {
+        box-shadow: none;
         position: relative;
         visibility: visible;
         opacity: 1;
