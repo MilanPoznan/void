@@ -75,7 +75,9 @@ p {
 	font-size: 14px;
 	line-height: 24px;
 	font-family: $montserrat;
-
+	strong {
+		font-weight: bold;
+	}
 	&:last-child {
 		margin-bottom: 0;
 	}

@@ -13,26 +13,45 @@
     display: flex;
     flex-flow: column;
     position: relative;
+    justify-content: flex-end;
+    background-image: url('./assets/img/press-bg.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 505px;
+
   }
   &__image {
-    height: 150px;
-    width: 60%;
+    height: 300px;
+    width: 80%;
     margin: 0 auto;
     background-position: center;
     background-size: contain;
     background-repeat: no-repeat;
   }
-
-  &__top {
-    position: relative;
+  &__title {
+    padding-left: 34px;
+    &:after {
+      display: none;
+    }
+  }
+  &__subtitle {
+    padding-left: 34px;
+    
   }
   &__bottom {
     position: relative;
     display: none;
   }
-  &__arrow-wrapp {
+  &__title-wrapp {
+    margin-bottom: 50px;
+  }
+  &__arrow-wrap {
     display: flex;
     justify-content: flex-end;
+    // position: absolute;
+    // width: 40px;
+    // height: auto;
+    // right: 0px;
   }
   &__arrow {
     position: relative;
@@ -45,17 +64,22 @@
     float: right;
     &:after {
       content: '';
+      display: block;
+      position: relative;
       border: solid $white;
-      border-width: 0 2px 2px 0;
+      border-width: 0 4px 4px 0;
       padding: 8px;
       transform: rotate(45deg);
       transition: 0.5s;
+      top: -4px;
     }
   }
   &__top-arrow  {
     &--open {
       &:after {
         transform: rotate(-135deg);
+        top: 4px;
+
       }
     }
   }
@@ -64,7 +88,72 @@
       content: '';
       transform: rotate(-135deg);
       top: 0px;
-      left: -8px;
     } 
+  }
+  &__content {
+    padding: 20px;
+    width: 90%;
+    margin: 0 auto;
+  }
+}
+
+@include desktop() {
+  .press {
+    &__section {
+      margin-bottom: 90px;
+      box-shadow: 10px 20px 60px 0 rgba(0, 0, 0, 0.3);
+      &:nth-child(even) {
+        .press__top {
+          flex-flow: row-reverse;
+        }
+        .press__image {
+          background-position: left;
+          margin-left: 80px;
+        }
+        .press__title-wrapp {
+          align-items: flex-end;
+
+        }
+        .press__title {
+          text-align: right;
+        }
+        .press__arrow {
+          left: 0;
+        }
+      }
+    }
+    &__top {
+      width: 100%;
+      flex-flow: row;
+      background-position: center;
+      
+     }
+    &__image {
+      height: 460px;
+      background-position: right;
+      width: 50%;
+    }
+    &__title-wrapp {
+      width: 45%;
+      display: flex;
+      flex-flow: column;
+      justify-content: flex-end;
+      padding-bottom: 7%;
+    }
+    &__arrow {
+      position: absolute;
+      bottom: 0;
+      right: 0;
+      width: 70px;
+      height: 70px;
+      &:after {
+        padding: 10px;
+      }
+    }
+    &__content {
+      padding: 60px;
+      width: 80%;
+      margin: 0 auto;
+    }
   }
 }
