@@ -92,6 +92,10 @@ function getPageData() {
     results => {
       results.map(result => {
         let currentSliceUrl = sliceUrl;
+        console.log(sliceUrl);
+        
+        //Dev purpose
+        // if (sliceUrl == 'development.voidpictures.com') {
         if (sliceUrl == 'void') {
           currentSliceUrl = 'frontpage';
         }
