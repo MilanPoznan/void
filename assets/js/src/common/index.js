@@ -8,11 +8,8 @@ import testimonialsSection from './components/testimonials';
 import projectGallery from './components/project-galery';
 import projectAbout from './components/project-about';
 import ekipaFilma from './components/project-ekipa';
-import galleryModal from './components/gallery-modal';
+// import galleryModal from './components/gallery-modal';
 import siteAnimation from './components/siteAnimation';
-
-//imgs 
-
 
 //Elements
 const $menuItem = $('.menu-item a');
@@ -23,8 +20,6 @@ const $hamburger = $('.hamburger');
 const $headerMenu = $('.header__menu');
 const $mobMenu = $('#primary-menu');
 const $menu = $('.js-menu');
-const headerLogo = document.getElementById('header-logo');
-
 
 //Vars
 var sliceUrl;
@@ -59,8 +54,8 @@ function createBioPage(result) {
 }
 
 function createDefautlPageTemplate(result) {
+  //For now we don't have def page
   console.log('test for def page');
-  
 }
 
 function createProjectCPT(result) {
@@ -68,8 +63,6 @@ function createProjectCPT(result) {
   $mainContentDiv.append(projectAbout(result));
   $mainContentDiv.append(ekipaFilma(result));
   $mainContentDiv.append(projectGallery(result));
-  // $mainContentDiv.append(galleryModal(result));
-
 }
 
 function getProjectData() {
@@ -79,15 +72,12 @@ function getProjectData() {
       results.map(result => {
         history.pushState(result, '', projectData.root_url + '/projects/' + sliceUrl);
         if (result.slug == sliceUrl) {
-          // setFrontPageLogo(result.slug);
           createProjectCPT(result);
         }
       });
     }
   );
 }
-
-
 
 function getPageData() {
   $.getJSON(
@@ -98,8 +88,8 @@ function getPageData() {
         console.log(sliceUrl);
         
         //Dev purpose
-        if (sliceUrl == 'development.voidpictures.com') {
-        // if (sliceUrl == 'void') {
+        // if (sliceUrl == 'development.voidpictures.com') {
+        if (sliceUrl == 'void') {
           currentSliceUrl = 'frontpage';
         }
         history.pushState(result, '', projectData.root_url + '/' + currentSliceUrl);
@@ -147,8 +137,6 @@ function getDataFromREST(e) {
 }
 
 //Events 
-
-
 $('#header-logo').on('click', function(e) {
   e.preventDefault();
   siteAnimation();
