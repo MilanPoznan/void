@@ -26,8 +26,8 @@
 
 	<header id="masthead" class="header">
 		<div class="header__logo" >
-			<a href="<?php echo get_home_url() ?>" id="header-logo">
-				<img id="header-logo-img" src="http://localhost:8888/void/wp-content/uploads/2019/08/logo-black.png" >
+			<img id="header-logo-img" src="http://localhost:8888/void/wp-content/uploads/2019/08/logo-black.png" >
+			<a href="<?php echo get_home_url() ?>/" id="header-logo">
 			</a>
 			<!-- <img src="" />			 -->
 			<?php

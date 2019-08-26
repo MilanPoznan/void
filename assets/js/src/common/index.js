@@ -104,7 +104,6 @@ function getPageData() {
         if (result.slug == currentSliceUrl) {
           switch (result.slug) {
             case 'frontpage':
-            // setFrontPageLogo(result.slug);
               createFrontPage(result);
               break;
             case 'press': 
@@ -143,13 +142,12 @@ function getDataFromREST(e) {
     loadFrontPage(targetUrl);
   }
 }
+
 //Events 
 $('#header-logo').on('click', function(e) {
   e.preventDefault();
-  // $mainContentDiv.empty();
-  // getPageData();
+  siteAnimation();
   getDataFromREST(e);
-
 })
 $menuItem.on('click', function(e) {
   siteAnimation();
