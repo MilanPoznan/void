@@ -34,7 +34,8 @@ var sliceUrl;
 $hamburgerWrapper.on('click', () => {
 	$hamburger.toggleClass('hamburger--is-active');
 	$headerMenu.toggleClass('header__menu--visible');
-	$('.header').toggleClass('header--is-open');
+  $('.header').toggleClass('header--is-open');
+  // $('body', 'html').addClass( 'no-scroll' );
 });
 /* END of navigation part */
 
