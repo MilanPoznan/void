@@ -9,7 +9,7 @@ import projectGallery from './components/project-galery';
 import projectAbout from './components/project-about';
 import ekipaFilma from './components/project-ekipa';
 import galleryModal from './components/gallery-modal';
-
+import siteAnimation from './components/siteAnimation';
 
 //imgs 
 
@@ -26,7 +26,8 @@ const headerLogo = document.getElementById('header-logo');
 
 //Vars
 var sliceUrl;
-
+  console.log();
+  
   // headerLogo.appendChild(image); 
 
 /* START navigation */
@@ -37,13 +38,9 @@ $hamburgerWrapper.on('click', () => {
 });
 /* END of navigation part */
 
-
-
-
 function getLastCharactersFromPageUrl(url) {
   sliceUrl = url.split('/');
   sliceUrl = sliceUrl[sliceUrl.length - 2];
-  console.log(sliceUrl);
 } 
 
 function createFrontPage(result) {
@@ -79,7 +76,6 @@ function getProjectData() {
     projectData.root_url + '/wp-json/wp/v2/projects',
     results => {
       results.map(result => {
-        // console.log(result);
         history.pushState(result, '', projectData.root_url + '/projects/' + sliceUrl);
         if (result.slug == sliceUrl) {
           // setFrontPageLogo(result.slug);
@@ -89,23 +85,12 @@ function getProjectData() {
     }
   );
 }
-function setFrontPageLogo(page) {
-  
-  if (window.innerWidth > 1200) {
-    if (page === 'frontpage') {
-      $('#header-logo-img').attr('src', 'http://localhost:8888/void/wp-content/uploads/2019/08/logo-white-menu.png')
-    } else {
-      $('#header-logo-img').attr('src', 'http://localhost:8888/void/wp-content/uploads/2019/08/logo-black.png')
-    }
-  }
-  
-}
+
 function getPageData() {
   $.getJSON(
     projectData.root_url + '/wp-json/wp/v2/pages',
     results => {
       results.map(result => {
-        // console.log(result);
         let currentSliceUrl = sliceUrl;
         if (sliceUrl == 'void') {
           currentSliceUrl = 'frontpage';
@@ -155,21 +140,17 @@ function getDataFromREST(e) {
   }
 }
 //Events 
-$('.custom-logo-link').on('click', function(e) {
-  let targetUrl = e.target.parentNode.href;
-
+$('#header-logo').on('click', function(e) {
   e.preventDefault();
-  loadFrontPage(targetUrl);
+  // $mainContentDiv.empty();
+  // getPageData();
+  getDataFromREST(e);
+
 })
 $menuItem.on('click', function(e) {
-  // $('.site-content').css('opacity', '0');
-  // setTimeout(() => {
-  // $('.site-content').css('opacity', '1');
-    
-  // }, 500);
-  
+  siteAnimation();
   if (e.target.parentNode.className.includes('lang-item')) {
-    console.log('asd');
+    //lang
   } else {
     if (window.innerWidth < 1200 ) {
       $hamburger.removeClass('hamburger--is-active');
