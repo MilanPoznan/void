@@ -1,4 +1,54 @@
-#void-logo-o {
-  fill: red;
-  transform: rotate(100,10,10);
+.site-animation {
+  display: none;
+}
+#void-v {
+  background-image: url('./assets/img/void-v.png');
+}
+#void-o {
+  background-image: url('./assets/img/void-o.png');
+}
+#void-i {
+  background-image: url('./assets/img/void-i.png');
+  width: 30px;
+}
+#void-d {
+  background-image: url('./assets/img/void-d.png');
+}
+.animation-logo-objects {
+  width: 50px;
+  height: 50px;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+@include desktop() {
+  .site-animation {
+    display: flex;
+    height: 0;
+    opacity: 0;
+    &__logo-wrapper {
+      width: 100%;
+      display: flex;
+      flex-flow: column;
+      align-items: center;
+      justify-content: center;
+    }
+    &__logo-top {
+      display: flex;
+      margin-bottom: 5px;
+      span {
+        display: inline;
+      }
+    }
+    &__logo-bottom {
+      width: 140px;
+      height: 20px;
+      background-image: url('./assets/img/bottom-logo.png');
+      background-size: contain;
+      background-position: center;
+      background-repeat: no-repeat;
+
+    }
+  }
 }

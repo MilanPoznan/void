@@ -125,7 +125,8 @@ function void_scripts() {
 
 	wp_deregister_script( 'jquery' );
 	wp_enqueue_script( 'jquery', 'https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js', NULL, '3.4.1', true);
-	wp_enqueue_script( 'index', get_theme_file_uri('/assets/js/main.js'), array('jquery'), '1.0', true );
+	wp_enqueue_script( 'gsap', 'https://cdnjs.cloudflare.com/ajax/libs/gsap/2.1.3/TweenMax.min.js', array('jquery'), '2.1.3', true);
+	wp_enqueue_script( 'index', get_theme_file_uri('/assets/js/main.js'), array('jquery', 'gsap'), '1.0', true );
 	wp_enqueue_script( 'press', get_theme_file_uri('/assets/js/pressScript.js'), array('jquery', 'index'), '1.0', true );
 
 	wp_localize_script( 'index', 'projectData', array(

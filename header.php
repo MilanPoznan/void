@@ -49,7 +49,16 @@
 		</div>
 	</header><!-- #masthead -->
 
-
-	<div id="content" class="site-content">	
-		<div class="site-animation">
+	<div class="site-animation">
+			<div class="site-animation__logo-wrapper">
+				<div class="site-animation__logo-top">
+					<span class="animation-logo-objects" id="void-v"></span>
+					<span class="animation-logo-objects rotated-object" id="void-o"></span>
+					<span class="animation-logo-objects" id="void-i"></span>
+					<span class="animation-logo-objects" id="void-d"></span>
+				</div>
+				<div class="site-animation__logo-bottom"></div>
+			</div>
 		</div>
+	<div id="content" class="site-content">	
+	
