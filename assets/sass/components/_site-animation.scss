@@ -1,5 +1,30 @@
 .site-animation {
-  display: none;
+  display: flex;
+  height: 0;
+  opacity: 0;
+  &__logo-wrapper {
+    width: 100%;
+    display: flex;
+    flex-flow: column;
+    align-items: center;
+    justify-content: center;
+  }
+  &__logo-top {
+    display: flex;
+    margin-bottom: 5px;
+    span {
+      display: inline;
+    }
+  }
+  &__logo-bottom {
+    width: 140px;
+    height: 20px;
+    background-image: url('./assets/img/bottom-logo.png');
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+
+  }
 }
 #void-v {
   background-image: url('./assets/img/void-v.png');

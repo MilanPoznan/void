@@ -1,4 +1,5 @@
 export default function imageWithTitle(result) {
+
   return (
     `
     <div class="image-text-component wrapper">
