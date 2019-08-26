@@ -39,7 +39,12 @@
     }
   }
 }
-
+.menu {
+  display: none;
+}
+.open-menu {
+  display: block;
+}
 @include desktop() {
 .hamburger {
   display: none;

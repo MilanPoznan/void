@@ -21,20 +21,21 @@ const currentUrl = window.location.href;
 const $hamburgerWrapper = $('.hamburger-wrapp');
 const $hamburger = $('.hamburger');
 const $headerMenu = $('.header__menu');
+const $mobMenu = $('#primary-menu');
 const $menu = $('.js-menu');
 const headerLogo = document.getElementById('header-logo');
 
+
 //Vars
 var sliceUrl;
-  console.log();
-  
-  // headerLogo.appendChild(image); 
 
 /* START navigation */
 $hamburgerWrapper.on('click', () => {
 	$hamburger.toggleClass('hamburger--is-active');
 	$headerMenu.toggleClass('header__menu--visible');
-	$('.header').toggleClass('header--is-open');
+  $('.header').toggleClass('header--is-open');
+  $('body').toggleClass( 'no-scroll' );
+  $mobMenu.toggleClass( 'open-menu' );
 });
 /* END of navigation part */
 
@@ -86,6 +87,8 @@ function getProjectData() {
   );
 }
 
+
+
 function getPageData() {
   $.getJSON(
     projectData.root_url + '/wp-json/wp/v2/pages',
@@ -95,8 +98,8 @@ function getPageData() {
         console.log(sliceUrl);
         
         //Dev purpose
-        // if (sliceUrl == 'development.voidpictures.com') {
-        if (sliceUrl == 'void') {
+        if (sliceUrl == 'development.voidpictures.com') {
+        // if (sliceUrl == 'void') {
           currentSliceUrl = 'frontpage';
         }
         history.pushState(result, '', projectData.root_url + '/' + currentSliceUrl);
@@ -144,21 +147,29 @@ function getDataFromREST(e) {
 }
 
 //Events 
+
+
 $('#header-logo').on('click', function(e) {
   e.preventDefault();
   siteAnimation();
   getDataFromREST(e);
 })
 $menuItem.on('click', function(e) {
-  siteAnimation();
   if (e.target.parentNode.className.includes('lang-item')) {
     //lang
   } else {
     if (window.innerWidth < 1200 ) {
       $hamburger.removeClass('hamburger--is-active');
       $headerMenu.removeClass('header__menu--visible');
+      $mobMenu.removeClass( 'open-menu' );
       $('.header').removeClass('header--is-open');
+      $('body').removeClass( 'no-scroll' );
+      setTimeout(() => {
+        siteAnimation();
+        
+      }, 500);
     } 
+    siteAnimation();
     getDataFromREST(e);
   }
   

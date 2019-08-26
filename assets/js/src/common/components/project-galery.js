@@ -33,6 +33,12 @@ export default function projectGallery(result) {
   
   return (
     `<div class="project-galery">
+      <div id="gallery-modal" class="modal">
+        <div class="modal__close" id="js-close-modal"></div>
+        <div class="modal__images">
+          <img src=${bgImage} class="modal__image" /> 
+        </div>
+      </div>
       <div class="project-galery__wrapper">
         ${galleryArray.map(
           image => 
@@ -42,13 +48,7 @@ export default function projectGallery(result) {
         }
       </div>
     </div>
-    <div id="gallery-modal" class="modal">
-
-      <div class="modal__close" id="js-close-modal"></div>
-      <div class="modal__images">
-       <img src=${bgImage} class="modal__image" /> 
-      </div>
-    </div>` 
+   ` 
   )
   
 }

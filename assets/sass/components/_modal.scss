@@ -54,7 +54,7 @@
 @include desktop() {
   .modal {
     &__images {
-      padding: 100px;
+      // padding: 100px;
       background: darkgrey;
     }
     &__image {
