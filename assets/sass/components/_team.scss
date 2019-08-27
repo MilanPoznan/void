@@ -183,27 +183,12 @@
     &__member-description {
       padding: 0 60px;
     }
-    &__prev {
-      left: 7%;
-    }
-    &__next {
-      right: 7%;
-    }
-    &__cast-link {
-      margin-bottom: 80px;
-    }
-  }
-}
-
-@include desktop() {
-  .team {
-    margin-bottom: 0px;
     &__peoples-slider {
       flex-wrap: wrap;
-      justify-content: space-between;
+      justify-content: flex-start;
     }
     &__member {
-      width: 33.33%;
+      width: 50%;
       min-width: 0;
       height: 660px;
       margin-bottom: 40px;
@@ -212,18 +197,40 @@
       width: 100%;
     }
     &__member-image {
+      width: 70%;
       height: 436px;
     }
     &__member-description {
-      padding: 0 20%;
+      margin-top: 65px;
+      padding: 0 70px;
+    }
+    &__cast-link {
+      margin-bottom: 80px;
+    }
+    &__slide {
+      display: none;
+    }
+  }
+  .move-top {
+    top: -500px;
+  }
+}
+
+@include desktop() {
+  .team {
+    margin-bottom: 0px;
+
+    &__member {
+      width: 33.33%;
+      margin-bottom: 60px;
+    }
+    &__member-description {
+      padding: 0 50px;
     }
     &__member-name {
       font-size: 30px;
       line-height: 40px;
       letter-spacing: 2px;
-    }
-    &__slide {
-      display: none;
     }
     &__cast-link {
       justify-content: flex-end;
@@ -254,15 +261,15 @@
       }
     }
   }
-  .move-top {
-    top: -500px;
-  }
 }
 
 @include desktop-lg() {
   .team {
     &__wrapper {
       max-width: 1440px;
+    }
+    &__member-description {
+      padding: 0 20%;
     }
   }
 }

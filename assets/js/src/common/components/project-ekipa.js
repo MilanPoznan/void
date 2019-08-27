@@ -8,7 +8,7 @@ export default function ekipaFilma(result) {
 
   const windowWidth = window.innerWidth;
  
-  if(windowWidth < 1199) {
+  if(windowWidth < 768) {
     sliderFunction(body[0], 'team__member', 'team', sliderIndex);
   } 
 
