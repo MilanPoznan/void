@@ -7,6 +7,8 @@
   &__images {
     display: flex;
     overflow-x: hidden;
+    background: #000;
+
   } 
   &__image {
     width: 100%;
@@ -53,10 +55,6 @@
 
 @include desktop() {
   .modal {
-    &__images {
-      // padding: 100px;
-      background: darkgrey;
-    }
     &__image {
       width: auto;
       margin: 0 auto;

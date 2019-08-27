@@ -88,8 +88,8 @@ function getPageData() {
         console.log(sliceUrl);
         
         //Dev purpose
-        // if (sliceUrl == 'development.voidpictures.com') {
-        if (sliceUrl == 'void') {
+        if (sliceUrl == 'development.voidpictures.com') {
+        // if (sliceUrl == 'void') {
           currentSliceUrl = 'frontpage';
         }
         history.pushState(result, '', projectData.root_url + '/' + currentSliceUrl);
