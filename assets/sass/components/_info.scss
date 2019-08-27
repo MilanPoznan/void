@@ -39,6 +39,7 @@
       width: 35px;
       height: 1px;
       background-color: $blue;
+      transition: 0.5s;
 
       &::after {
         content: '';
@@ -92,11 +93,12 @@
 
       &-link {
         line-height: 44px;
-        letter-spacing: 2px;        
+        letter-spacing: 2px; 
       }
     }
   }
 }
+
 
 @include desktop-lg() {
   .info {

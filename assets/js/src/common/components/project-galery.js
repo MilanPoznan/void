@@ -6,8 +6,11 @@ export default function projectGallery(result) {
   const galleryArray = result.acf.galerija;
   let isModalOpen = false;
   const body = document.getElementsByTagName('body');
-  let sliderIndex = 0;
-  var bgImage = 'http://localhost:8888/void/wp-content/uploads/2019/07/zivizivot.png';
+  var bgImage;
+  function setStarterImageToModal() {
+    let bgImage = galleryArray[0].galerija_image;
+    return bgImage;
+  }
   function addImageToModalGallery(e) {
     let modalImage = document.querySelector('.modal__image');
       
@@ -18,11 +21,8 @@ export default function projectGallery(result) {
         modalImage.src = bgImage;
       } else if (e.target.className.includes('modal__prev')) {
         console.log(currImage.previousSibling);
-        // modalImage.src = currImage.previousSibling.dataset.url
       } else if (e.target.className.includes('modal__next')) {
-        console.log('next');
         modalImage.src = currImage.nextSibling.dataset.url
-
       }
 
   }
@@ -36,7 +36,7 @@ export default function projectGallery(result) {
       <div id="gallery-modal" class="modal">
         <div class="modal__close" id="js-close-modal"></div>
         <div class="modal__images">
-          <img src=${bgImage} class="modal__image" /> 
+          <img src=${setStarterImageToModal()} class="modal__image" /> 
         </div>
       </div>
       <div class="project-galery__wrapper">
