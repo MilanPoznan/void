@@ -20,6 +20,7 @@ const $hamburger = $('.hamburger');
 const $headerMenu = $('.header__menu');
 const $mobMenu = $('#primary-menu');
 const $menu = $('.js-menu');
+const body = document.getElementsByTagName('body');
 
 //Vars
 var sliceUrl;
@@ -88,8 +89,8 @@ function getPageData() {
         console.log(sliceUrl);
         
         //Dev purpose
-        if (sliceUrl == 'development.voidpictures.com') {
-        // if (sliceUrl == 'void') {
+        // if (sliceUrl == 'development.voidpictures.com') {
+        if (sliceUrl == 'void') {
           currentSliceUrl = 'frontpage';
         }
         history.pushState(result, '', projectData.root_url + '/' + currentSliceUrl);
@@ -173,4 +174,25 @@ $(document).ready(function() {
 
   }
 });
+body[0].onclick = (e) => {
+  e.preventDefault();
+  console.log(e.target)
+  if (e.target.className === 'info__container-link' || e.target.className === 'image-text-component__link') {
+    document.documentElement.scrollTop = 0;
+    e.preventDefault();
+    siteAnimation();
+    getDataFromREST(e);
+  }
+  if (e.target.className === 'image-text-component__overlay') {
 
+    let url = e.target.parentNode.href;
+    let urlObj = {
+      target: {
+        href: url
+      }
+    }
+    e.preventDefault();
+    siteAnimation();
+    getDataFromREST(urlObj);
+  }
+} 
