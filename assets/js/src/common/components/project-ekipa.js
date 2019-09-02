@@ -21,21 +21,27 @@ export default function ekipaFilma(result) {
     }
   });
 
+  // Ovo sa Djoletom preci jos jednom i da uradi kako valja :D 
   body[0].addEventListener('click', (e) => {
-    const el = document.querySelector('.team__cast-wrapp');
-    const innerHeight = document.querySelector('.team__full-cast-inner').offsetHeight;
-    const element = document.querySelector('.team__full-cast');
-    const link = document.querySelector('.team__cast-link');
-    
-    if(e.target === link) {
+
+    if(e.target.className.includes('team__cast-link')) {
+      const el = document.querySelector('.team__cast-wrapp');
+      const element = document.querySelector('.team__full-cast');
+      const link = document.querySelector('.team__cast-link');
+      const innerHeight = document.querySelector('.team__full-cast-inner').offsetHeight;
       el.style.height = `${innerHeight}px`;
       element.style.position = 'initial';
       link.style.display = 'none';     
-    } else {
+    } else if ( e.target.className === 'team__full-cast-close') {
+      const el = document.querySelector('.team__cast-wrapp');
+      const element = document.querySelector('.team__full-cast');
+      const link = document.querySelector('.team__cast-link');
       el.style.height = '0px';
       element.style.position = 'absolute';
       link.style.display = 'flex';
+
     }
+
   });
   
   return (

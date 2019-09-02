@@ -1,4 +1,4 @@
-.image-text-component {
+  .image-text-component {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
@@ -17,16 +17,18 @@
     background-position: center;
     background-size: cover;
     background-repeat: no-repeat;
-  }
-  &__overlay {
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    height: 100%;
-    width: 100%;
-    background-color: rgba(44, 104, 136, .3);
+    &:after {
+      content: '';
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      height: 100%;
+      width: 100%;
+      background-color: rgba(44, 104, 136, .3);
+
+    }
   }
   &__title {
     position: absolute;
@@ -38,6 +40,7 @@
     color: $white;
     text-align: center;
     text-transform: uppercase;
+    z-index: 10;
   }
 }
 

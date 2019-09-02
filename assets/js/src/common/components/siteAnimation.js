@@ -1,6 +1,5 @@
 export default function siteAnimation() {
 
-  console.log('POCINJEM MIKI');
   
   const siteAnimationElem = document.querySelector('.site-animation');
   const rotatedObject = document.querySelector('.rotated-object');

@@ -13,6 +13,7 @@ import siteAnimation from './components/siteAnimation';
 
 //Elements
 const $menuItem = $('.menu-item a');
+const $headerMenuItems = $('#site-navigation .menu-item a');
 const $mainContentDiv = $('.site-content');
 const currentUrl = window.location.href;
 const $hamburgerWrapper = $('.hamburger-wrapp');
@@ -86,11 +87,10 @@ function getPageData() {
     results => {
       results.map(result => {
         let currentSliceUrl = sliceUrl;
-        console.log(sliceUrl);
         
         //Dev purpose
-        // if (sliceUrl == 'development.voidpictures.com') {
-        if (sliceUrl == 'void') {
+        if (sliceUrl == 'development.voidpictures.com') {
+        // if (sliceUrl == 'void') {
           currentSliceUrl = 'frontpage';
         }
         history.pushState(result, '', projectData.root_url + '/' + currentSliceUrl);
@@ -136,7 +136,13 @@ function getDataFromREST(e) {
     loadFrontPage(targetUrl);
   }
 }
-
+function setActiveClassToLink(e) {
+  console.log(e.target.href);
+  console.log($headerMenuItems);
+  let $headerMenuVal = Object.values($headerMenuItems);
+  console.log($headerMenuVal.href);
+  
+} 
 //Events 
 $('#header-logo').on('click', function(e) {
   e.preventDefault();
@@ -144,6 +150,7 @@ $('#header-logo').on('click', function(e) {
   getDataFromREST(e);
 })
 $menuItem.on('click', function(e) {
+  // setActiveClassToLink(e);
   if (e.target.parentNode.className.includes('lang-item')) {
     //lang
   } else {
@@ -174,14 +181,16 @@ $(document).ready(function() {
 
   }
 });
-body[0].onclick = (e) => {
+$('body').on('click', '.image-text-component__link, .info__container-link', function(e) {
   e.preventDefault();
-  console.log(e.target)
-  if (e.target.className === 'info__container-link' || e.target.className === 'image-text-component__link') {
-    document.documentElement.scrollTop = 0;
+  document.documentElement.scrollTop = 0;
+  siteAnimation();
+  getDataFromREST(e);
+})
+
+body[0].onclick = (e) => {
+  if (e.target.className === 'image-text-component__title ') {
     e.preventDefault();
-    siteAnimation();
-    getDataFromREST(e);
   }
   if (e.target.className === 'image-text-component__overlay') {
 
