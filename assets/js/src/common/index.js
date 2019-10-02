@@ -56,7 +56,6 @@ function createBioPage(result) {
 }
 
 function createDefautlPageTemplate(result) {
-  //For now we don't have def page
   console.log('test for def page');
 }
 
@@ -80,30 +79,38 @@ function getProjectData() {
     }
   );
 }
-
 function getPageData() {
   $.getJSON(
     projectData.root_url + '/wp-json/wp/v2/pages',
     results => {
       results.map(result => {
         let currentSliceUrl = sliceUrl;
-        
+        console.log(currentSliceUrl)
         //Dev purpose
-        if (sliceUrl == 'development.voidpictures.com') {
-        // if (sliceUrl == 'void') {
-          currentSliceUrl = 'frontpage';
+        // if (sliceUrl == 'development.voidpictures.com') {
+        if (sliceUrl == 'void') {
+          currentSliceUrl = 'home';
         }
         history.pushState(result, '', projectData.root_url + '/' + currentSliceUrl);
         
         if (result.slug == currentSliceUrl) {
           switch (result.slug) {
+            case 'home':
+              createFrontPage(result);
+              break;
             case 'frontpage':
               createFrontPage(result);
               break;
             case 'press': 
               createPressPage(result);
               break;
-            case 'bio':
+            case 'stampa': 
+              createPressPage(result);
+              break;
+            case 'biography':
+              createBioPage(result);
+              break;
+            case 'biografija':
               createBioPage(result);
               break;
               default: 
@@ -124,6 +131,7 @@ function loadFrontPage(targetUrl) {
 
 function getDataFromREST(e) {
   let targetUrl = e.target.href;
+  console.log(targetUrl)
   e.preventDefault();
   if (targetUrl.includes('#')) {
     e.preventDefault();
