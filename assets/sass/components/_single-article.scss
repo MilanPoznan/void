@@ -1,0 +1,46 @@
+.article {
+  &__wrapper {
+  }
+  &__image {
+    width: 100%;
+    height: 40vh;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+  }
+  &__content-wrapp {
+    padding: 20px;
+  }
+  h1 {
+    // margin
+    margin-bottom: 40px;
+  }
+}
+
+@include tablet() {
+  .article {
+    &__content-wrapp {
+      padding: 40px;
+    }    
+  }  
+}
+
+@include desktop() {
+  .article {
+    &__image {
+      height: 70vh;
+    }
+    h1 {
+      margin-bottom: 80px;
+    }
+  }
+}
+
+@include desktop-lg() {
+  .article {
+    &__wrapper {
+      max-width: 1440px;
+      margin: 0 auto;
+    }
+  }
+}

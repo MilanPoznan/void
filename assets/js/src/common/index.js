@@ -1,6 +1,7 @@
 import videoSection from './components/video';
 import infoContent from './components/info';
 import bioPage from './components/bioPage';
+import blogPage from './components/blogPage';
 import imageWithTitle from './components/image-with-title';
 import pressPage from './components/pressPage';
 import projectHero from './components/project-hero';
@@ -8,6 +9,8 @@ import testimonialsSection from './components/testimonials';
 import projectGallery from './components/project-galery';
 import projectAbout from './components/project-about';
 import ekipaFilma from './components/project-ekipa';
+import singleArticle from './components/singleArticle';
+
 // import galleryModal from './components/gallery-modal';
 import siteAnimation from './components/siteAnimation';
 
@@ -54,11 +57,18 @@ function createPressPage(result) {
 function createBioPage(result) {
   $mainContentDiv.append(bioPage(result));
 }
+function createBlogPage(result) {
+  $mainContentDiv.append(blogPage(result));
+  console.log(result)
+}
 
 function createDefautlPageTemplate(result) {
   console.log('test for def page');
 }
 
+function createArticlesCPT(result) {
+  $mainContentDiv.append(singleArticle(result));
+}
 function createProjectCPT(result) {
   $mainContentDiv.append(projectHero(result));
   $mainContentDiv.append(projectAbout(result));
@@ -79,6 +89,21 @@ function getProjectData() {
     }
   );
 }
+
+function getArticlesData() {
+  $.getJSON(
+    projectData.root_url + '/wp-json/wp/v2/articles',
+    results => {
+      results.map(result => {
+      console.log(result)
+        history.pushState(result, '', projectData.root_url + '/articles/' + sliceUrl);
+        if (result.slug == sliceUrl) {
+          createArticlesCPT(result);
+        }
+      });
+    }
+  );
+}
 function getPageData() {
   $.getJSON(
     projectData.root_url + '/wp-json/wp/v2/pages',
@@ -89,13 +114,13 @@ function getPageData() {
         //Dev purpose
         // if (sliceUrl == 'development.voidpictures.com') {
         if (sliceUrl == 'void') {
-          currentSliceUrl = 'home';
+          currentSliceUrl = 'frontpage';
         }
         history.pushState(result, '', projectData.root_url + '/' + currentSliceUrl);
         
         if (result.slug == currentSliceUrl) {
           switch (result.slug) {
-            case 'home':
+            case 'frontpage':
               createFrontPage(result);
               break;
             case 'frontpage':
@@ -113,17 +138,17 @@ function getPageData() {
             case 'biografija':
               createBioPage(result);
               break;
-              default: 
-                createDefautlPageTemplate();
-              break;
+              // default: 
+              //   createDefautlPageTemplate();
+              // break;
           }
         }
       });
     }
   )
 }
-
 function loadFrontPage(targetUrl) {
+  console.log('Da li sam ovde?')
   $mainContentDiv.empty();
   getLastCharactersFromPageUrl(targetUrl);
   getPageData();
@@ -140,7 +165,12 @@ function getDataFromREST(e) {
     $mainContentDiv.empty();
     getLastCharactersFromPageUrl(targetUrl);
     getProjectData();
+  } else if(targetUrl.includes('articles')) {
+    $mainContentDiv.empty();
+    getLastCharactersFromPageUrl(targetUrl);
+    getArticlesData()
   } else {
+    console.log("I am in else ")
     loadFrontPage(targetUrl);
   }
 }
@@ -180,10 +210,14 @@ $menuItem.on('click', function(e) {
 });
 
 $(document).ready(function() {
+  console.log(projectData.all_news)
   if (currentUrl.includes('project')) {
     getLastCharactersFromPageUrl(currentUrl);
     getProjectData();
-  } else {
+  } else if(currentUrl.includes('articles')) {
+    getLastCharactersFromPageUrl(currentUrl);
+    getArticlesData();
+  }else {
     getLastCharactersFromPageUrl(currentUrl);
     getPageData();
 
