@@ -119,17 +119,19 @@ add_action( 'widgets_init', 'void_widgets_init' );
 
 function get_the_news() {
 	$args = array(
-    'post_type'=> 'articles',
-    'areas'    => 'painting',
+		'post_type'=> 'articles',
     'order'    => 'ASC'
     );              
 
 $the_query = new WP_Query( $args );
 if ($the_query->have_posts() ) {
 	while ( $the_query->have_posts() ) {
-		$the_query->the_post(); 
+		$the_query->the_post();
+		// $the_query2->post_thumbnail(); 
 	}
-}   
+
+}
+// $final_query =    
 	
 return $the_query;
 
@@ -255,7 +257,9 @@ function add_cpt_articles() {
     'public'             => true,
 		'show_in_rest'			 => true,
     'capability_type'    => 'post',
-    'has_archive'        => true,
+		'has_archive'        => true,
+		'supports' => array( 'title', 'editor', 'thumbnail' ),
+
 		// 'hierarchical'       => false,
 		'rewrite' => array(
 			"with_front" => true

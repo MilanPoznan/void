@@ -1,7 +1,7 @@
 import videoSection from './components/video';
 import infoContent from './components/info';
 import bioPage from './components/bioPage';
-import blogPage from './components/blogPage';
+import articlesArchive from './components/articlesArchive';
 import imageWithTitle from './components/image-with-title';
 import pressPage from './components/pressPage';
 import projectHero from './components/project-hero';
@@ -58,8 +58,7 @@ function createBioPage(result) {
   $mainContentDiv.append(bioPage(result));
 }
 function createBlogPage(result) {
-  $mainContentDiv.append(blogPage(result));
-  console.log(result)
+  $mainContentDiv.append(articlesArchive(result));
 }
 
 function createDefautlPageTemplate(result) {
@@ -89,13 +88,22 @@ function getProjectData() {
     }
   );
 }
+var articlesData = null;
+function getArticlesDataForNews() {
+  const finalResults = $.getJSON(
+    projectData.root_url + '/wp-json/wp/v2/articles',
+    results => {
+      articlesData = results;
+    }    
+  )
+}
+getArticlesDataForNews();
 
 function getArticlesData() {
   $.getJSON(
     projectData.root_url + '/wp-json/wp/v2/articles',
     results => {
       results.map(result => {
-      console.log(result)
         history.pushState(result, '', projectData.root_url + '/articles/' + sliceUrl);
         if (result.slug == sliceUrl) {
           createArticlesCPT(result);
@@ -110,17 +118,16 @@ function getPageData() {
     results => {
       results.map(result => {
         let currentSliceUrl = sliceUrl;
-        console.log(currentSliceUrl)
         //Dev purpose
-        // if (sliceUrl == 'development.voidpictures.com') {
-        if (sliceUrl == 'void') {
-          currentSliceUrl = 'frontpage';
+        if (sliceUrl == 'development.voidpictures.com') {
+        // if (sliceUrl == 'void') {
+          currentSliceUrl = 'home';
         }
         history.pushState(result, '', projectData.root_url + '/' + currentSliceUrl);
         
         if (result.slug == currentSliceUrl) {
           switch (result.slug) {
-            case 'frontpage':
+            case 'home':
               createFrontPage(result);
               break;
             case 'frontpage':
@@ -138,6 +145,9 @@ function getPageData() {
             case 'biografija':
               createBioPage(result);
               break;
+            case 'news': 
+              getArticlesDataForNews();
+              createBlogPage(articlesData);
               // default: 
               //   createDefautlPageTemplate();
               // break;
@@ -148,15 +158,13 @@ function getPageData() {
   )
 }
 function loadFrontPage(targetUrl) {
-  console.log('Da li sam ovde?')
   $mainContentDiv.empty();
   getLastCharactersFromPageUrl(targetUrl);
   getPageData();
 }
 
 function getDataFromREST(e) {
-  let targetUrl = e.target.href;
-  console.log(targetUrl)
+  let targetUrl = e.currentTarget.href;
   e.preventDefault();
   if (targetUrl.includes('#')) {
     e.preventDefault();
@@ -170,25 +178,23 @@ function getDataFromREST(e) {
     getLastCharactersFromPageUrl(targetUrl);
     getArticlesData()
   } else {
-    console.log("I am in else ")
     loadFrontPage(targetUrl);
   }
 }
-function setActiveClassToLink(e) {
-  console.log(e.target.href);
-  console.log($headerMenuItems);
-  let $headerMenuVal = Object.values($headerMenuItems);
-  console.log($headerMenuVal.href);
-  
-} 
+
 //Events 
 $('#header-logo').on('click', function(e) {
   e.preventDefault();
   siteAnimation();
   getDataFromREST(e);
 })
+
+// function setActiveClassToMenuItem(currentMenuItem) {
+//   $menuItem.removeClass('current_page_item');
+//   currentMenuItem.addClass('current_page_item');
+
+// }
 $menuItem.on('click', function(e) {
-  // setActiveClassToLink(e);
   if (e.target.parentNode.className.includes('lang-item')) {
     //lang
   } else {
@@ -210,7 +216,6 @@ $menuItem.on('click', function(e) {
 });
 
 $(document).ready(function() {
-  console.log(projectData.all_news)
   if (currentUrl.includes('project')) {
     getLastCharactersFromPageUrl(currentUrl);
     getProjectData();
@@ -223,12 +228,14 @@ $(document).ready(function() {
 
   }
 });
-$('body').on('click', '.image-text-component__link, .info__container-link', function(e) {
+$('body').on('click', '.image-text-component__link, .info__container-link, .news__link', function(e) {
   e.preventDefault();
   document.documentElement.scrollTop = 0;
   siteAnimation();
   getDataFromREST(e);
-})
+});
+
+
 
 body[0].onclick = (e) => {
   if (e.target.className === 'image-text-component__title ') {
