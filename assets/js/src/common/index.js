@@ -1,3 +1,4 @@
+import articlesSlider from './components/articles-slider';
 import videoSection from './components/video';
 import infoContent from './components/info';
 import bioPage from './components/bioPage';
@@ -44,7 +45,8 @@ function getLastCharactersFromPageUrl(url) {
   sliceUrl = sliceUrl[sliceUrl.length - 2];
 } 
 
-function createFrontPage(result) {
+function createFrontPage(result, lang, articles) {
+  $mainContentDiv.append(articlesSlider(articles));
   $mainContentDiv.append(videoSection(result));
   $mainContentDiv.append(infoContent(result));
   $mainContentDiv.append(imageWithTitle(result));
@@ -88,16 +90,40 @@ function getProjectData() {
     }
   );
 }
-var articlesData = null;
-function getArticlesDataForNews() {
-  const finalResults = $.getJSON(
+let englishArticles = [];
+
+const getArticlesDataForNews = () => {
+  $.getJSON(
     projectData.root_url + '/wp-json/wp/v2/articles',
     results => {
-      articlesData = results;
+      results.map(article => {
+        if (!article.link.includes("/sr/")) {
+          englishArticles.push(article)
+        } 
+      })
     }    
   )
+  // return englishArticles;
 }
 getArticlesDataForNews();
+let serbianArticles = [];
+
+const getArticlesDataForNewsSerbian = () => {
+  $.getJSON(
+    projectData.root_url + '/wp-json/wp/v2/articles',
+    results => {
+      results.map(article => {
+        if (article.link.includes("/sr/")) {
+          serbianArticles.push(article);
+        } 
+      })
+    }    
+  )
+  // return serbianArticles;
+}
+getArticlesDataForNewsSerbian()
+// console.log(getArticlesDataForNewsSerbian())
+// getArticlesDataForNews();
 
 function getArticlesData() {
   $.getJSON(
@@ -119,19 +145,21 @@ function getPageData() {
       results.map(result => {
         let currentSliceUrl = sliceUrl;
         //Dev purpose
-        if (sliceUrl == 'development.voidpictures.com') {
-        // if (sliceUrl == 'void') {
-          currentSliceUrl = 'home';
+        // if (sliceUrl == 'development.voidpictures.com') {
+        if (sliceUrl == 'void') {
+          currentSliceUrl = 'frontpage';
         }
         history.pushState(result, '', projectData.root_url + '/' + currentSliceUrl);
         
         if (result.slug == currentSliceUrl) {
           switch (result.slug) {
-            case 'home':
-              createFrontPage(result);
+            case 'frontpage':
+              console.log(englishArticles)
+              createFrontPage(result, 'en', englishArticles);
               break;
             case 'frontpage':
-              createFrontPage(result);
+              console.log(serbianArticles)
+              createFrontPage(result, serbianArticles);
               break;
             case 'press': 
               createPressPage(result);
@@ -146,11 +174,11 @@ function getPageData() {
               createBioPage(result);
               break;
             case 'news': 
-              getArticlesDataForNews();
-              createBlogPage(articlesData);
-              // default: 
-              //   createDefautlPageTemplate();
-              // break;
+              createBlogPage(englishArticles);
+              break;
+            case 'vesti':  
+              createBlogPage(serbianArticles);
+              break;
           }
         }
       });
