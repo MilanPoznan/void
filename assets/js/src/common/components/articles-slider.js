@@ -1,4 +1,4 @@
-import sliderFunction from './slider';
+import sliderFunction from './fadeInSlider';
 
 export default function articlesSlider(result) {
   const sliderArr = result;
