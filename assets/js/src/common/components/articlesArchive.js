@@ -16,7 +16,7 @@ export default function articlesArchive (result) {
             <div class="news__content-wrapp">
               <h3 class="news__title">${item.title.rendered}</h3>
               <div class="news__content">${shortContent}</div>
-              <a href=${item.link} class="news__link">Read more</a>
+              <a href=${item.link} class="news__link js-link">Read more</a>
             </div>
           </div>
          `

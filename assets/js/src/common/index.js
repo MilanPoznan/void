@@ -154,11 +154,9 @@ function getPageData() {
         if (result.slug == currentSliceUrl) {
           switch (result.slug) {
             case 'frontpage':
-              console.log(englishArticles)
               createFrontPage(result, 'en', englishArticles);
               break;
             case 'frontpage':
-              console.log(serbianArticles)
               createFrontPage(result, serbianArticles);
               break;
             case 'press': 
@@ -217,11 +215,7 @@ $('#header-logo').on('click', function(e) {
   getDataFromREST(e);
 })
 
-// function setActiveClassToMenuItem(currentMenuItem) {
-//   $menuItem.removeClass('current_page_item');
-//   currentMenuItem.addClass('current_page_item');
 
-// }
 $menuItem.on('click', function(e) {
   if (e.target.parentNode.className.includes('lang-item')) {
     //lang
@@ -256,7 +250,7 @@ $(document).ready(function() {
 
   }
 });
-$('body').on('click', '.image-text-component__link, .info__container-link, .news__link', function(e) {
+$('body').on('click', '.image-text-component__link, .info__container-link, .js-link', function(e) {
   e.preventDefault();
   document.documentElement.scrollTop = 0;
   siteAnimation();

@@ -1,7 +1,7 @@
 import sliderFunction from './fadeInSlider';
 
 export default function articlesSlider(result) {
-  const sliderArr = result;
+  const sliderArr = result.slice(0, 3);
   const body = document.getElementsByTagName('body');
   let sliderIndex = 0;
 
@@ -11,23 +11,25 @@ export default function articlesSlider(result) {
     <div class="articles-slider">
       <div class="articles-slider__wrapper">
       ${sliderArr.map(item => {
-        const shortContent = item.content.rendered.substring(0, 50);
+        const shortContent = item.content.rendered.substring(0, 80);
 
         return (
           `
           <div class="articles-slider__slider">
             <div class="articles-slider__image" style="background-image: url('${item.acf.post_image}')">
+            <div class="articles-slider__image-overlay"></div>
             <div class="articles-slider__title">${item.title.rendered}</div>
             <div class="articles-slider__content">${shortContent}</div>    
+            <a href=${item.link} class="articles-slider__link js-link">Pogledaj</a>
             </div> 
           </div>
           
           `
         )
       }).join('')}
-      <span class="articles-slider__prev articles-slider__slide"></span>
-      <span class="articles-slider__next articles-slider__slide"></span>
+     
       </div>  
+      <span class="articles-slider__next articles-slider__slide"></span>
     </div>
   `)
 }
