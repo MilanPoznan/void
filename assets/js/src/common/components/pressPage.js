@@ -1,12 +1,6 @@
 export default function pressPage(result) {
   
-  console.log(result);
-  
-  
   const body = document.getElementsByTagName('body');
-  function toggleContent () {
-    console.log('toggle');
-  }
   
   body[0].onclick = (e) => {
     if (e.target.className.includes('press__top-arrow')) {

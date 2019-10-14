@@ -20,7 +20,6 @@ export default function projectGallery(result) {
         bgImage = imageUrl;
         modalImage.src = bgImage;
       } else if (e.target.className.includes('modal__prev')) {
-        console.log(currImage.previousSibling);
       } else if (e.target.className.includes('modal__next')) {
         modalImage.src = currImage.nextSibling.dataset.url
       }

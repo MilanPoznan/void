@@ -1,6 +1,8 @@
+import articlesSlider from './components/articles-slider';
 import videoSection from './components/video';
 import infoContent from './components/info';
 import bioPage from './components/bioPage';
+import articlesArchive from './components/articlesArchive';
 import imageWithTitle from './components/image-with-title';
 import pressPage from './components/pressPage';
 import projectHero from './components/project-hero';
@@ -8,6 +10,8 @@ import testimonialsSection from './components/testimonials';
 import projectGallery from './components/project-galery';
 import projectAbout from './components/project-about';
 import ekipaFilma from './components/project-ekipa';
+import singleArticle from './components/singleArticle';
+
 // import galleryModal from './components/gallery-modal';
 import siteAnimation from './components/siteAnimation';
 
@@ -22,7 +26,7 @@ const $headerMenu = $('.header__menu');
 const $mobMenu = $('#primary-menu');
 const $menu = $('.js-menu');
 const body = document.getElementsByTagName('body');
-
+let heroTitle = null;
 //Vars
 var sliceUrl;
 
@@ -40,12 +44,27 @@ function getLastCharactersFromPageUrl(url) {
   sliceUrl = url.split('/');
   sliceUrl = sliceUrl[sliceUrl.length - 2];
 } 
-
-function createFrontPage(result) {
+function animateSliderTitle() {
+  const sliderTitle = $('.articles-slider__title');
+  const sliderContent = $('.articles-slider__content');
+  const sliderButton = $('.articles-slider__link');
+  console.log('tetaeteatt')
+  sliderTitle.addClass('title-animation');
+  sliderContent.addClass('content-animation');
+  sliderButton.addClass('content-animation');
+  setTimeout(() => {
+    sliderTitle.removeClass('title-animation');
+    sliderContent.removeClass('content-animation');
+    sliderButton.removeClass('content-animation');
+  }, 800);
+}
+function createFrontPage(result, lang, articles) {
+  $mainContentDiv.append(articlesSlider(articles));
   $mainContentDiv.append(videoSection(result));
   $mainContentDiv.append(infoContent(result));
   $mainContentDiv.append(imageWithTitle(result));
   $mainContentDiv.append(testimonialsSection(result));
+  animateSliderTitle();
   
 }
 function createPressPage(result) {
@@ -54,11 +73,17 @@ function createPressPage(result) {
 function createBioPage(result) {
   $mainContentDiv.append(bioPage(result));
 }
+function createBlogPage(result) {
+  $mainContentDiv.append(articlesArchive(result));
+}
 
 function createDefautlPageTemplate(result) {
   console.log('test for def page');
 }
 
+function createArticlesCPT(result) {
+  $mainContentDiv.append(singleArticle(result));
+}
 function createProjectCPT(result) {
   $mainContentDiv.append(projectHero(result));
   $mainContentDiv.append(projectAbout(result));
@@ -79,16 +104,63 @@ function getProjectData() {
     }
   );
 }
+let englishArticles = [];
+
+const getArticlesDataForNews = () => {
+  $.getJSON(
+    projectData.root_url + '/wp-json/wp/v2/articles',
+    results => {
+      results.map(article => {
+        if (!article.link.includes("/sr/")) {
+          englishArticles.push(article)
+        } 
+      })
+    }    
+  )
+  // return englishArticles;
+}
+getArticlesDataForNews();
+let serbianArticles = [];
+
+const getArticlesDataForNewsSerbian = () => {
+  $.getJSON(
+    projectData.root_url + '/wp-json/wp/v2/articles',
+    results => {
+      results.map(article => {
+        if (article.link.includes("/sr/")) {
+          serbianArticles.push(article);
+        } 
+      })
+    }    
+  )
+  // return serbianArticles;
+}
+getArticlesDataForNewsSerbian()
+// console.log(getArticlesDataForNewsSerbian())
+// getArticlesDataForNews();
+
+function getArticlesData() {
+  $.getJSON(
+    projectData.root_url + '/wp-json/wp/v2/articles',
+    results => {
+      results.map(result => {
+        history.pushState(result, '', projectData.root_url + '/articles/' + sliceUrl);
+        if (result.slug == sliceUrl) {
+          createArticlesCPT(result);
+        }
+      });
+    }
+  );
+}
 function getPageData() {
   $.getJSON(
     projectData.root_url + '/wp-json/wp/v2/pages',
     results => {
       results.map(result => {
         let currentSliceUrl = sliceUrl;
-        console.log(currentSliceUrl)
         //Dev purpose
-        // if (sliceUrl == 'development.voidpictures.com') {
-        if (sliceUrl == 'void') {
+        if (sliceUrl == 'development.voidpictures.com') {
+        // if (sliceUrl == 'void') {
           currentSliceUrl = 'home';
         }
         history.pushState(result, '', projectData.root_url + '/' + currentSliceUrl);
@@ -96,10 +168,10 @@ function getPageData() {
         if (result.slug == currentSliceUrl) {
           switch (result.slug) {
             case 'home':
-              createFrontPage(result);
+              createFrontPage(result, 'en', englishArticles);
               break;
             case 'frontpage':
-              createFrontPage(result);
+              createFrontPage(result, serbianArticles);
               break;
             case 'press': 
               createPressPage(result);
@@ -113,8 +185,11 @@ function getPageData() {
             case 'biografija':
               createBioPage(result);
               break;
-              default: 
-                createDefautlPageTemplate();
+            case 'news': 
+              createBlogPage(englishArticles);
+              break;
+            case 'vesti':  
+              createBlogPage(serbianArticles);
               break;
           }
         }
@@ -122,7 +197,6 @@ function getPageData() {
     }
   )
 }
-
 function loadFrontPage(targetUrl) {
   $mainContentDiv.empty();
   getLastCharactersFromPageUrl(targetUrl);
@@ -130,8 +204,7 @@ function loadFrontPage(targetUrl) {
 }
 
 function getDataFromREST(e) {
-  let targetUrl = e.target.href;
-  console.log(targetUrl)
+  let targetUrl = e.currentTarget.href;
   e.preventDefault();
   if (targetUrl.includes('#')) {
     e.preventDefault();
@@ -140,25 +213,31 @@ function getDataFromREST(e) {
     $mainContentDiv.empty();
     getLastCharactersFromPageUrl(targetUrl);
     getProjectData();
+  } else if(targetUrl.includes('articles')) {
+    $mainContentDiv.empty();
+    getLastCharactersFromPageUrl(targetUrl);
+    getArticlesData()
   } else {
     loadFrontPage(targetUrl);
   }
 }
-function setActiveClassToLink(e) {
-  console.log(e.target.href);
-  console.log($headerMenuItems);
-  let $headerMenuVal = Object.values($headerMenuItems);
-  console.log($headerMenuVal.href);
-  
-} 
+
 //Events 
 $('#header-logo').on('click', function(e) {
   e.preventDefault();
   siteAnimation();
+ 
   getDataFromREST(e);
+  setTimeout(() => {
+    animateSliderTitle();
+  }, 1800);
+
 })
+
+
 $menuItem.on('click', function(e) {
-  // setActiveClassToLink(e);
+  console.log(heroTitle)
+
   if (e.target.parentNode.className.includes('lang-item')) {
     //lang
   } else {
@@ -183,18 +262,23 @@ $(document).ready(function() {
   if (currentUrl.includes('project')) {
     getLastCharactersFromPageUrl(currentUrl);
     getProjectData();
-  } else {
+  } else if(currentUrl.includes('articles')) {
+    getLastCharactersFromPageUrl(currentUrl);
+    getArticlesData();
+  }else {
     getLastCharactersFromPageUrl(currentUrl);
     getPageData();
-
   }
+
 });
-$('body').on('click', '.image-text-component__link, .info__container-link', function(e) {
+$('body').on('click', '.image-text-component__link, .info__container-link, .js-link', function(e) {
   e.preventDefault();
   document.documentElement.scrollTop = 0;
   siteAnimation();
   getDataFromREST(e);
-})
+});
+
+
 
 body[0].onclick = (e) => {
   if (e.target.className === 'image-text-component__title ') {

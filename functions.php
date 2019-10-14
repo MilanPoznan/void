@@ -117,6 +117,25 @@ function void_widgets_init() {
 }
 add_action( 'widgets_init', 'void_widgets_init' );
 
+function get_the_news() {
+	$args = array(
+		'post_type'=> 'articles',
+    'order'    => 'ASC'
+    );              
+
+$the_query = new WP_Query( $args );
+if ($the_query->have_posts() ) {
+	while ( $the_query->have_posts() ) {
+		$the_query->the_post();
+		// $the_query2->post_thumbnail(); 
+	}
+
+}
+// $final_query =    
+	
+return $the_query;
+
+}
 /**
  * Enqueue scripts and styles.
  */
@@ -132,7 +151,9 @@ function void_scripts() {
 	wp_localize_script( 'index', 'projectData', array(
 		'root_url' => get_site_url(),
 		'post_ID' => get_the_ID(),
-		'nonce' => wp_create_nonce('wp_rest')
+		'nonce' => wp_create_nonce('wp_rest'),
+		'all_posts' => get_posts(),
+		'all_news' => get_the_news()
 ));
 wp_enqueue_style( 'void-style', get_stylesheet_uri() );
 
@@ -205,9 +226,53 @@ function add_cpt_projects() {
 	);
   register_post_type( 'projects', $args );
 
-
 }
 add_action('init', 'add_cpt_projects');
+
+
+/**
+ * Add CPT News
+ */
+function add_cpt_articles() {
+
+	$labels = array(
+    'name'               => 'Articles',
+    'singular_name'      => 'Article',
+    'menu_name'          => 'Articles',
+    'name_admin_bar'     => 'New',
+    'add_new'            => 'Add New',
+    'add_new_item'       => 'Add New Article',
+    'new_item'           => 'New Article',
+    'edit_item'          => 'Edit Article',
+    'view_item'          => 'View Article',
+    'all_items'          => 'All Articles',
+    'search_items'       => 'Search Articles',
+    'parent_item_colon'  => 'Parent Articles:',
+    'not_found'          => 'No Articles found.',
+    'not_found_in_trash' => 'No Articles found in Trash.',
+	);
+	
+	$args = array(
+    'labels'             => $labels,
+    'public'             => true,
+		'show_in_rest'			 => true,
+    'capability_type'    => 'post',
+		'has_archive'        => true,
+		'supports' => array( 'title', 'editor', 'thumbnail' ),
+
+		// 'hierarchical'       => false,
+		'rewrite' => array(
+			"with_front" => true
+		),
+		'cptp_permalink_structure' => '%post_id%',
+    'menu_icon'          => 'dashicons-welcome-write-blog',
+    'taxonomies'         => array( 'category', 'post_tag' )
+	);
+  register_post_type( 'Articles', $args );
+
+}
+add_action('init', 'add_cpt_articles');
+
 
 function cc_mime_types($mimes) {
   $mimes['svg'] = 'image/svg+xml';
