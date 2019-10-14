@@ -159,15 +159,15 @@ function getPageData() {
       results.map(result => {
         let currentSliceUrl = sliceUrl;
         //Dev purpose
-        // if (sliceUrl == 'development.voidpictures.com') {
-        if (sliceUrl == 'void') {
-          currentSliceUrl = 'frontpage';
+        if (sliceUrl == 'development.voidpictures.com') {
+        // if (sliceUrl == 'void') {
+          currentSliceUrl = 'home';
         }
         history.pushState(result, '', projectData.root_url + '/' + currentSliceUrl);
         
         if (result.slug == currentSliceUrl) {
           switch (result.slug) {
-            case 'frontpage':
+            case 'home':
               createFrontPage(result, 'en', englishArticles);
               break;
             case 'frontpage':
