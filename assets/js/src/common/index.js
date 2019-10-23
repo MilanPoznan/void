@@ -1,5 +1,5 @@
 import articlesSlider from './components/articles-slider';
-import videoSection from './components/video';
+// import videoSection from './components/video';
 import infoContent from './components/info';
 import bioPage from './components/bioPage';
 import articlesArchive from './components/articlesArchive';
@@ -48,7 +48,6 @@ function animateSliderTitle() {
   const sliderTitle = $('.articles-slider__title');
   const sliderContent = $('.articles-slider__content');
   const sliderButton = $('.articles-slider__link');
-  console.log('tetaeteatt')
   sliderTitle.addClass('title-animation');
   sliderContent.addClass('content-animation');
   sliderButton.addClass('content-animation');
@@ -59,8 +58,8 @@ function animateSliderTitle() {
   }, 800);
 }
 function createFrontPage(result, lang, articles) {
-  $mainContentDiv.append(articlesSlider(articles));
-  $mainContentDiv.append(videoSection(result));
+  $mainContentDiv.append(articlesSlider(articles, lang));
+  // $mainContentDiv.append(videoSection(result));
   $mainContentDiv.append(infoContent(result));
   $mainContentDiv.append(imageWithTitle(result));
   $mainContentDiv.append(testimonialsSection(result));
@@ -164,14 +163,14 @@ function getPageData() {
           currentSliceUrl = 'home';
         }
         history.pushState(result, '', projectData.root_url + '/' + currentSliceUrl);
-        
         if (result.slug == currentSliceUrl) {
           switch (result.slug) {
             case 'home':
               createFrontPage(result, 'en', englishArticles);
               break;
             case 'frontpage':
-              createFrontPage(result, serbianArticles);
+              console.log(result.slug)
+              createFrontPage(result, 'sr', serbianArticles);
               break;
             case 'press': 
               createPressPage(result);
@@ -236,8 +235,6 @@ $('#header-logo').on('click', function(e) {
 
 
 $menuItem.on('click', function(e) {
-  console.log(heroTitle)
-
   if (e.target.parentNode.className.includes('lang-item')) {
     //lang
   } else {
@@ -273,8 +270,8 @@ $(document).ready(function() {
 });
 $('body').on('click', '.image-text-component__link, .info__container-link, .js-link', function(e) {
   e.preventDefault();
-  document.documentElement.scrollTop = 0;
   siteAnimation();
+  document.documentElement.scrollTop = 0;
   getDataFromREST(e);
 });
 
