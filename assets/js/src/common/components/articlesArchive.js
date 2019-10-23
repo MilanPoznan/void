@@ -1,4 +1,6 @@
 export default function articlesArchive (result) {
+  
+  console.log(result);
   return (
     `
     <div class="news">
@@ -9,21 +11,23 @@ export default function articlesArchive (result) {
        return (
          `
           <div class="news__single">
-          <div class="news__image-wrapp">
-            <div class="news__image" style="background-image: url('${bgImage}')"></div>
-          </div>
-          
+            <div class="news__image-wrapp">
+              <div class="news__image" style="background-image: url('${bgImage}')"></div>
+            </div>
             <div class="news__content-wrapp">
               <h3 class="news__title">${item.title.rendered}</h3>
-              <div class="news__content">${shortContent}</div>
+              <div class="news__content">${item.content.rendered}</div>
               <a href=${item.link} class="news__link js-link">Read more</a>
             </div>
+            
           </div>
          `
        ) 
       }).join('')}
       </div>
     </div>
+              
     `
   )
 };
+{/*  */}
