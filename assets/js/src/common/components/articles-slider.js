@@ -6,6 +6,7 @@ export default function articlesSlider(result, lang) {
   const readMoreString = lang === 'en' ? 'Read More' : 'Pročitaj'
   let sliderIndex = 0;
   sliderFunction(body[0], 'articles-slider__slider', 'articles-slider', sliderIndex);
+  
   return (`
     <div class="articles-slider">
       <div class="articles-slider__wrapper">
