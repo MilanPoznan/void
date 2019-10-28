@@ -1,11 +1,11 @@
-import sliderFunction from './fadeInSlider';
+// import sliderFunction from './fadeInSlider';
 
-export default function articlesSlider(result, lang) {
+export default function slickSlider(result, lang) {
   const sliderArr = result.slice(0, 3);
   const body = document.getElementsByTagName('body');
   const readMoreString = lang === 'en' ? 'Read More' : 'Pročitaj'
-  let sliderIndex = 0;
-  sliderFunction(body[0], 'articles-slider__slider', 'articles-slider', sliderIndex);
+  // let sliderIndex = 0;
+  // sliderFunction(body[0], 'articles-slider__slider', 'articles-slider', sliderIndex);
   
   return (`
     <div class="articles-slider">
@@ -26,7 +26,6 @@ export default function articlesSlider(result, lang) {
         )
       }).join('')}
       </div>  
-      <span class="articles-slider__next articles-slider__slide"></span>
     </div>
   `)
 }
