@@ -1,4 +1,4 @@
-import articlesSlider from './components/articles-slider';
+import slickSlider from './components/slick-slider';
 // import videoSection from './components/video';
 import infoContent from './components/info';
 import bioPage from './components/bioPage';
@@ -58,7 +58,7 @@ function animateSliderTitle() {
   }, 800);
 }
 function createFrontPage(result, lang, articles) {
-  $mainContentDiv.append(articlesSlider(articles, lang));
+  $mainContentDiv.append(slickSlider(articles, lang));
   // $mainContentDiv.append(videoSection(result));
   $mainContentDiv.append(infoContent(result));
   $mainContentDiv.append(imageWithTitle(result));
@@ -80,6 +80,15 @@ function createDefautlPageTemplate(result) {
   console.log('test for def page');
 }
 
+function createSlickSlider() {
+  $('.articles-slider__wrapper').slick({
+    dots: false,
+    infinite: true,
+    speed: 300,
+    fade: true,
+    cssEase: 'linear'
+  });
+}
 function createArticlesCPT(result) {
   $mainContentDiv.append(singleArticle(result));
 }
@@ -158,19 +167,21 @@ function getPageData() {
       results.map(result => {
         let currentSliceUrl = sliceUrl;
         //Dev purpose
-        // if (sliceUrl == 'development.voidpictures.com') {
-        if (sliceUrl == 'void') {
-          currentSliceUrl = 'frontpage';
+        if (sliceUrl == 'development.voidpictures.com') {
+        // if (sliceUrl == 'void') {
+          currentSliceUrl = 'home';
         }
         history.pushState(result, '', projectData.root_url + '/' + currentSliceUrl);
         if (result.slug == currentSliceUrl) {
           switch (result.slug) {
-            case 'frontpage':
-              createFrontPage(result, 'en', englishArticles);
+            case 'home':
+            createFrontPage(result, 'en', englishArticles);
+            createSlickSlider();
               break;
             case 'frontpage':
               console.log(result.slug)
               createFrontPage(result, 'sr', serbianArticles);
+              createSlickSlider();
               break;
             case 'press': 
               createPressPage(result);
