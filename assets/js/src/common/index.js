@@ -39,7 +39,7 @@ $hamburgerWrapper.on('click', () => {
   $mobMenu.toggleClass( 'open-menu' );
 });
 /* END of navigation part */
-
+$('.menu-item').on('click', (e) => console.log(e.target))
 function getLastCharactersFromPageUrl(url) {
   sliceUrl = url.split('/');
   sliceUrl = sliceUrl[sliceUrl.length - 2];

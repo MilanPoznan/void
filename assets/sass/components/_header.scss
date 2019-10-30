@@ -144,6 +144,15 @@
       top: 30px;
       visibility: visible;
     }
+    .menu-item {
+      display: block;
+      a {
+        z-index: 100;
+        display: block;
+        position: relative;
+        pointer-events: all;
+      }
+    }
   }
   .menu .lang-item {
     text-transform: uppercase;

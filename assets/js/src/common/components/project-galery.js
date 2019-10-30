@@ -27,6 +27,7 @@ export default function projectGallery(result) {
   }
   
   body[0].onclick = (e) => {
+    console.log(e.target)
     addImageToModalGallery(e);
   } 
   
