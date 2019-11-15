@@ -215,6 +215,7 @@ function loadFrontPage(targetUrl) {
 
 function getDataFromREST(e) {
   let targetUrl = e.currentTarget.href;
+  console.log(targetUrl)
   e.preventDefault();
   if (targetUrl.includes('#')) {
     e.preventDefault();
