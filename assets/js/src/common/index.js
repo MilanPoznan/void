@@ -39,7 +39,7 @@ $hamburgerWrapper.on('click', () => {
   $mobMenu.toggleClass( 'open-menu' );
 });
 /* END of navigation part */
-
+$('.menu-item').on('click', (e) => console.log(e.target))
 function getLastCharactersFromPageUrl(url) {
   sliceUrl = url.split('/');
   sliceUrl = sliceUrl[sliceUrl.length - 2];
@@ -167,7 +167,7 @@ function getPageData() {
       results.map(result => {
         let currentSliceUrl = sliceUrl;
         //Dev purpose
-        if (sliceUrl == 'development.voidpictures.com') {
+        if (sliceUrl == 'voidpictures.com') {
         // if (sliceUrl == 'void') {
           currentSliceUrl = 'home';
         }
@@ -179,7 +179,6 @@ function getPageData() {
             createSlickSlider();
               break;
             case 'frontpage':
-              console.log(result.slug)
               createFrontPage(result, 'sr', serbianArticles);
               createSlickSlider();
               break;
@@ -215,6 +214,7 @@ function loadFrontPage(targetUrl) {
 
 function getDataFromREST(e) {
   let targetUrl = e.currentTarget.href;
+  console.log(targetUrl)
   e.preventDefault();
   if (targetUrl.includes('#')) {
     e.preventDefault();

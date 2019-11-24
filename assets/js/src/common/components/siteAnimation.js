@@ -4,7 +4,6 @@ export default function siteAnimation() {
   const siteAnimationElem = document.querySelector('.site-animation');
   const rotatedObject = document.querySelector('.rotated-object');
   const footer = document.querySelector('.site-footer');
-  
   TweenMax.to(footer, 0, {
     opacity: 0,
   });

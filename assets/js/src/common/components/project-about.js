@@ -13,13 +13,6 @@ export default function projectAbout(result) {
           `
         ).join('')}
       </div>  
-      ${result.acf.project_trailer_video !== "" ?
-        `<div class="about-project__trailer">
-          <h2>Trailer</h2>
-          ${result.acf.project_trailer_video}
-        </div>`  
-      : null}
-     
     </div>`
   )
 

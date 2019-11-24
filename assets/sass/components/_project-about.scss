@@ -35,9 +35,15 @@
 @include desktop() {
   .about-project {
     &__description {
-      flex-direction: row;
+      flex-direction: column;
+      flex-wrap: wrap;
+      align-items: flex-start;
+      justify-content: flex-start;
+      max-height: 1200px;
     }
     &__box {
+      width: 46%;
+      margin: 40px 0 40px 20px;
       h2 {
         margin-bottom: 75px;
       }
@@ -50,8 +56,8 @@
       &-content {
 
         &:last-child {
-          columns: 2 300px;
-          column-gap: 25px;
+          // columns: 2 300px;
+          // column-gap: 25px;
         }
       }
     }

@@ -1,9 +1,10 @@
 .articles-slider {
   position: relative;
+  height: calc( 100vh - 100px);
   &__wrapper {
     position: relative;
     width: 100vw;
-    height: 60vh;
+    height: 100%;
     display: flex;
     flex-flow: row;
     overflow-x: hidden;
@@ -14,7 +15,7 @@
   }
   &__slider {
     min-width: 100vw;
-    height: 60vh !important;
+    height: calc( 100vh - 100px) !important;
     position: absolute;
     display: flex;
     flex-flow: column;
@@ -100,12 +101,12 @@
   }
 }
 .title-animation {
-  animation-name: animate-content;
-  animation-duration: 0.8s;
+  // animation-name: animate-content;
+  // animation-duration: 0.8s;
 }
 .content-animation {
-  animation-name: animate-button;
-  animation-duration: 1s;
+  // animation-name: animate-button;
+  // animation-duration: 1s;
 }
 
 @keyframes animate-content {
@@ -153,7 +154,7 @@
 
     }
     &__slider {
-      height: calc( 100vh - 100px);
+      height: calc( 100vh - 100px) !important;
 
     }
     &__image {
