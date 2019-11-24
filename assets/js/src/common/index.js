@@ -167,7 +167,7 @@ function getPageData() {
       results.map(result => {
         let currentSliceUrl = sliceUrl;
         //Dev purpose
-        if (sliceUrl == 'development.voidpictures.com') {
+        if (sliceUrl == 'voidpictures.com') {
         // if (sliceUrl == 'void') {
           currentSliceUrl = 'home';
         }
@@ -179,7 +179,6 @@ function getPageData() {
             createSlickSlider();
               break;
             case 'frontpage':
-              console.log(result.slug)
               createFrontPage(result, 'sr', serbianArticles);
               createSlickSlider();
               break;
